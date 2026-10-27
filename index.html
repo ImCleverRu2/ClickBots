@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clickbots.com — PPC Click Fraud Detection, Ad Waste Calculator &amp; Bot Blocker Reviews</title>
+  <meta name="description" content="15–30% of PPC budgets are drained by invalid traffic. Calculate your ad waste, test your browser for bot signatures, and compare the top click fraud protection tools for Google Ads, Meta and TikTok." />
+  <meta name="theme-color" content="#020617" />
+  <link rel="canonical" href="https://clickbots.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Clickbots.com — Stop Paying for Bot Clicks" />
+  <meta property="og:description" content="Diagnose, detect and neutralize clickbots across Google Ads, Meta and TikTok." />
+  <meta property="og:url" content="https://clickbots.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23020617'/><circle cx='16' cy='16' r='10' fill='none' stroke='%2310b981' stroke-width='2'/><circle cx='16' cy='16' r='4' fill='%2322d3ee'/></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+          keyframes: {
+            ticker: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+            sweep: { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } },
+            scanline: { '0%': { top: '0%' }, '100%': { top: '100%' } },
+          },
+          animation: {
+            ticker: 'ticker 40s linear infinite',
+            sweep: 'sweep 3s linear infinite',
+            scanline: 'scanline 2.2s ease-in-out infinite alternate',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Lucide icons (CDN) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Clickbots.com",
+    "url": "https://clickbots.com/",
+    "description": "Independent authority hub for PPC click fraud detection and ad protection software."
+  }
+  </script>
+
+  <style>
+    /* Background grid pattern */
+    .bg-grid {
+      background-image:
+        linear-gradient(rgba(148,163,184,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148,163,184,0.06) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+    .glow-emerald { box-shadow: 0 0 0 1px rgba(16,185,129,.35), 0 0 40px -8px rgba(16,185,129,.45); }
+    .glow-red { box-shadow: 0 0 0 1px rgba(239,68,68,.35), 0 0 40px -10px rgba(239,68,68,.45); }
+    .text-gradient { background: linear-gradient(90deg,#34d399,#22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .text-gradient-threat { background: linear-gradient(90deg,#f59e0b,#ef4444); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    /* Range slider styling */
+    input[type=range] { -webkit-appearance: none; appearance: none; height: 6px; border-radius: 9999px; background: #1e293b; outline: none; }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 9999px; background: #10b981; border: 3px solid #020617; box-shadow: 0 0 0 2px #10b981, 0 0 16px #10b981; cursor: pointer; }
+    input[type=range]::-moz-range-thumb { width: 16px; height: 16px; border-radius: 9999px; background: #10b981; border: 3px solid #020617; box-shadow: 0 0 0 2px #10b981; cursor: pointer; }
+    input[type=range]:focus-visible { box-shadow: 0 0 0 3px rgba(34,211,238,.6); }
+    input[type=number]::-webkit-inner-spin-button { opacity: .4; }
+
+    /* Accessible focus ring everywhere */
+    :focus-visible { outline: 2px solid #22d3ee; outline-offset: 2px; }
+
+    /* Modal transitions */
+    .modal { transition: opacity .2s ease; }
+    .modal[aria-hidden="true"] { opacity: 0; pointer-events: none; }
+    .modal[aria-hidden="false"] { opacity: 1; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-200 font-sans antialiased selection:bg-emerald-500/30 selection:text-white">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-emerald-500 focus:text-slate-950 focus:px-4 focus:py-2 focus:rounded-lg font-semibold">Skip to content</a>
+
+  <!-- ============================== NAVIGATION ============================== -->
+  <header id="top" class="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-xl">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between" aria-label="Primary">
+      <a href="#top" class="flex items-center gap-2.5 group" aria-label="Clickbots.com home">
+        <!-- Radar badge -->
+        <span class="relative grid place-items-center w-9 h-9 rounded-lg bg-slate-900 border border-emerald-500/40 overflow-hidden" aria-hidden="true">
+          <span class="absolute inset-1 rounded-full border border-emerald-500/30"></span>
+          <span class="absolute inset-2.5 rounded-full border border-emerald-500/20"></span>
+          <span class="absolute inset-0 animate-sweep" style="background: conic-gradient(from 0deg, rgba(16,185,129,.55), transparent 25%);"></span>
+          <span class="relative w-1.5 h-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_#22d3ee]"></span>
+        </span>
+        <span class="font-extrabold tracking-tight text-white text-lg">Clickbots<span class="text-emerald-400">.com</span></span>
+      </a>
+
+      <ul class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-400 whitespace-nowrap">
+        <li><a href="#calculator" class="hover:text-emerald-400 transition-colors">Calculator</a></li>
+        <li><a href="#scanner" class="hover:text-emerald-400 transition-colors">Bot Inspector</a></li>
+        <li><a href="#matrix" class="hover:text-emerald-400 transition-colors">Software Matrix</a></li>
+        <li><a href="#acquire" class="hover:text-emerald-400 transition-colors">Domain Inquiries</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <a href="#calculator" class="hidden sm:inline-flex items-center gap-2 whitespace-nowrap rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-sm px-4 py-2 transition-colors">
+          <i data-lucide="calculator" class="w-4 h-4"></i> Calculate Ad Waste
+        </a>
+        <button id="menuToggle" type="button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-slate-800 text-slate-300" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="lg:hidden hidden border-t border-slate-800 bg-slate-950">
+      <ul class="px-4 py-3 space-y-1 text-slate-300 font-medium">
+        <li><a href="#calculator" class="block px-3 py-2.5 rounded-lg hover:bg-slate-900">Calculator</a></li>
+        <li><a href="#scanner" class="block px-3 py-2.5 rounded-lg hover:bg-slate-900">Bot Inspector</a></li>
+        <li><a href="#matrix" class="block px-3 py-2.5 rounded-lg hover:bg-slate-900">Software Matrix</a></li>
+        <li><a href="#acquire" class="block px-3 py-2.5 rounded-lg hover:bg-slate-900">Domain Inquiries</a></li>
+        <li class="pt-2"><a href="#calculator" class="block text-center rounded-lg bg-emerald-500 text-slate-950 font-semibold px-4 py-2.5">Calculate Ad Waste</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================== HERO ============================== -->
+    <section class="relative overflow-hidden bg-grid" aria-labelledby="hero-title">
+      <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-emerald-500/10 blur-3xl" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute top-40 -right-40 w-[500px] h-[500px] rounded-full bg-red-500/10 blur-3xl" aria-hidden="true"></div>
+
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-12 sm:pt-24 lg:pt-28">
+        <div class="max-w-4xl">
+          <p class="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 font-mono text-xs text-red-300">
+            <span class="relative flex w-2 h-2"><span class="absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75 animate-ping"></span><span class="relative inline-flex w-2 h-2 rounded-full bg-red-500"></span></span>
+            THREAT_LEVEL: ELEVATED — invalid traffic detected across paid channels
+          </p>
+          <h1 id="hero-title" class="mt-6 text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-white leading-[1.05]">
+            <span class="text-gradient-threat">15% to 30%</span> of your PPC budget is drained by invalid traffic.
+          </h1>
+          <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl leading-relaxed">
+            Clickbots.com helps media buyers <span class="text-slate-200">diagnose, detect and neutralize</span> clickbots, click farms and competitor fraud across
+            <span class="text-slate-200">Google Ads, Meta and TikTok</span> — with independent data, transparent tooling and no-fluff software reviews.
+          </p>
+          <div class="mt-10 flex flex-col sm:flex-row gap-3">
+            <a href="#calculator" class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-6 py-3.5 glow-emerald transition-colors">
+              <i data-lucide="trending-down" class="w-5 h-5"></i> Analyze Your Losses
+            </a>
+            <a href="#scanner" data-autoscan class="inline-flex items-center justify-center gap-2 rounded-xl border border-cyan-500/40 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 font-semibold px-6 py-3.5 transition-colors">
+              <i data-lucide="scan-line" class="w-5 h-5"></i> Run Browser Bot Test
+            </a>
+          </div>
+        </div>
+
+        <!-- Key stats -->
+        <dl class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-px rounded-2xl overflow-hidden border border-slate-800 bg-slate-800">
+          <div class="bg-slate-950/90 p-6">
+            <dt class="font-mono text-xs uppercase tracking-widest text-slate-500">Est. Global Ad Fraud</dt>
+            <dd class="mt-2 text-3xl sm:text-4xl font-black text-red-400">$100B+</dd>
+          </div>
+          <div class="bg-slate-950/90 p-6">
+            <dt class="font-mono text-xs uppercase tracking-widest text-slate-500">Avg. Invalidation Rate</dt>
+            <dd class="mt-2 text-3xl sm:text-4xl font-black text-amber-400">22%</dd>
+          </div>
+          <div class="bg-slate-950/90 p-6">
+            <dt class="font-mono text-xs uppercase tracking-widest text-slate-500">Major Platforms Analyzed</dt>
+            <dd class="mt-2 text-3xl sm:text-4xl font-black text-emerald-400">4</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Scrolling threat ticker -->
+      <div class="relative border-y border-slate-800 bg-slate-900/60 overflow-hidden" aria-label="Threat intelligence ticker">
+        <div id="ticker" class="flex w-max animate-ticker hover:[animation-play-state:paused] py-3 font-mono text-xs sm:text-sm whitespace-nowrap"></div>
+      </div>
+    </section>
+
+    <!-- ============================== AD WASTE CALCULATOR ============================== -->
+    <section id="calculator" class="scroll-mt-20 py-20 sm:py-28" aria-labelledby="calc-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="font-mono text-xs uppercase tracking-widest text-emerald-400">// Module 01 — Ad Waste Calculator</p>
+          <h2 id="calc-title" class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">How much are clickbots costing you?</h2>
+          <p class="mt-4 text-slate-400 text-lg">Industry benchmarks pre-fill fraud rate and CPC. Adjust any value to match your account data.</p>
+        </div>
+
+        <div class="mt-12 grid lg:grid-cols-5 gap-6">
+          <!-- Inputs -->
+          <form id="calcForm" class="lg:col-span-2 rounded-2xl border border-slate-800 bg-slate-900/50 p-6 sm:p-8 space-y-7" novalidate onsubmit="return false;">
+            <!-- Spend -->
+            <div>
+              <div class="flex items-center justify-between gap-4">
+                <label for="spendNumber" class="text-sm font-semibold text-slate-300">Monthly Ad Spend</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 font-mono">$</span>
+                  <input id="spendNumber" type="number" inputmode="numeric" min="1000" max="200000" step="500" value="25000"
+                    class="w-36 rounded-lg bg-slate-950 border border-slate-700 focus:border-emerald-500 pl-7 pr-3 py-2 font-mono text-right text-white" />
+                </div>
+              </div>
+              <input id="spendRange" type="range" min="1000" max="200000" step="500" value="25000" class="mt-4 w-full" aria-label="Monthly ad spend slider" />
+              <div class="mt-2 flex justify-between font-mono text-[11px] text-slate-500"><span>$1K</span><span>$100K</span><span>$200K</span></div>
+            </div>
+
+            <!-- Industry -->
+            <div>
+              <label for="industry" class="text-sm font-semibold text-slate-300">Target Industry</label>
+              <div class="relative mt-2">
+                <select id="industry" class="w-full appearance-none rounded-lg bg-slate-950 border border-slate-700 focus:border-emerald-500 px-4 py-3 text-white pr-10"></select>
+                <i data-lucide="chevron-down" class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none"></i>
+              </div>
+            </div>
+
+            <!-- Fraud rate + CPC (auto-filled by industry, user-editable) -->
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label for="fraudRate" class="text-sm font-semibold text-slate-300">Fraud Rate <span class="text-slate-500 font-normal">(%)</span></label>
+                <input id="fraudRate" type="number" min="1" max="60" step="0.5" class="mt-2 w-full rounded-lg bg-slate-950 border border-slate-700 focus:border-amber-500 px-3 py-2.5 font-mono text-amber-300" />
+              </div>
+              <div>
+                <label for="cpc" class="text-sm font-semibold text-slate-300">Avg. CPC <span class="text-slate-500 font-normal">($)</span></label>
+                <input id="cpc" type="number" min="0.1" max="500" step="0.05" class="mt-2 w-full rounded-lg bg-slate-950 border border-slate-700 focus:border-emerald-500 px-3 py-2.5 font-mono text-white" />
+              </div>
+            </div>
+
+            <!-- Conversion rate -->
+            <div>
+              <label for="convRate" class="text-sm font-semibold text-slate-300">Target Conversion Rate <span class="text-slate-500 font-normal">(%)</span></label>
+              <input id="convRate" type="number" min="0.1" max="100" step="0.1" value="4.5" class="mt-2 w-full rounded-lg bg-slate-950 border border-slate-700 focus:border-emerald-500 px-3 py-2.5 font-mono text-white" />
+              <p class="mt-2 text-xs text-slate-500">Used to estimate conversions you would have earned if fraudulent clicks were real buyers.</p>
+            </div>
+
+            <p id="industryNote" class="rounded-lg border border-slate-800 bg-slate-950/60 p-3 text-xs text-slate-400 font-mono"></p>
+          </form>
+
+          <!-- Results -->
+          <div class="lg:col-span-3 rounded-2xl border border-red-500/30 bg-gradient-to-b from-red-950/30 to-slate-900/60 p-6 sm:p-8 glow-red" aria-live="polite">
+            <div class="flex items-center justify-between">
+              <p class="font-mono text-xs uppercase tracking-widest text-red-300 flex items-center gap-2"><i data-lucide="flame" class="w-4 h-4"></i> Damage Report</p>
+              <span class="font-mono text-[11px] text-slate-500">MODEL: benchmark-v2026</span>
+            </div>
+
+            <div class="mt-6">
+              <p class="text-sm text-slate-400">Estimated Monthly Budget Lost to Clickbots</p>
+              <p id="outMonthly" class="mt-1 text-5xl sm:text-6xl font-black tracking-tight text-gradient-threat font-mono">$0</p>
+            </div>
+
+            <!-- Spend split bar -->
+            <div class="mt-6">
+              <div class="flex h-3 rounded-full overflow-hidden bg-slate-800" role="img" id="splitBarLabel" aria-label="">
+                <div id="barClean" class="bg-emerald-500 transition-all duration-500" style="width:78%"></div>
+                <div id="barFraud" class="bg-red-500 transition-all duration-500" style="width:22%"></div>
+              </div>
+              <div class="mt-2 flex justify-between font-mono text-[11px]">
+                <span class="text-emerald-400">● Clean traffic <span id="pctClean">78%</span></span>
+                <span class="text-red-400">● Invalid traffic <span id="pctFraud">22%</span></span>
+              </div>
+            </div>
+
+            <dl class="mt-8 grid sm:grid-cols-3 gap-4">
+              <div class="rounded-xl border border-slate-800 bg-slate-950/70 p-4">
+                <dt class="flex items-center gap-2 text-xs text-slate-400"><i data-lucide="calendar-x" class="w-4 h-4 text-amber-400"></i> Annual Ad Spend Lost</dt>
+                <dd id="outAnnual" class="mt-2 text-2xl font-bold text-amber-300 font-mono">$0</dd>
+              </div>
+              <div class="rounded-xl border border-slate-800 bg-slate-950/70 p-4">
+                <dt class="flex items-center gap-2 text-xs text-slate-400"><i data-lucide="mouse-pointer-click" class="w-4 h-4 text-red-400"></i> Fake Clicks / mo (Blockable)</dt>
+                <dd id="outClicks" class="mt-2 text-2xl font-bold text-red-300 font-mono">0</dd>
+              </div>
+              <div class="rounded-xl border border-slate-800 bg-slate-950/70 p-4">
+                <dt class="flex items-center gap-2 text-xs text-slate-400"><i data-lucide="target" class="w-4 h-4 text-emerald-400"></i> Recoverable Conversions / mo</dt>
+                <dd id="outConv" class="mt-2 text-2xl font-bold text-emerald-300 font-mono">0</dd>
+              </div>
+            </dl>
+
+            <a id="calcCta" href="#matrix" class="mt-8 flex items-center justify-center gap-2 text-center rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-6 py-4 glow-emerald transition-colors">
+              <i data-lucide="shield-check" class="w-5 h-5 shrink-0"></i>
+              <span>Stop burning <span id="ctaAmount" class="font-mono">$0</span>/mo — Compare Top 4 Blocker Tools</span>
+            </a>
+            <p class="mt-3 text-[11px] text-slate-500 text-center">Estimates use public industry benchmarks; actual invalid-traffic rates vary by account, geo and targeting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== BOT ENVIRONMENT SCANNER ============================== -->
+    <section id="scanner" class="scroll-mt-20 py-20 sm:py-28 border-t border-slate-900 bg-grid" aria-labelledby="scan-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest text-cyan-400">// Module 02 — Bot Inspector</p>
+          <h2 id="scan-title" class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">Live Bot Environment Scanner</h2>
+          <p class="mt-4 text-slate-400 text-lg">The same client-side signals fraud-detection vendors fingerprint on every ad click — run against <em>your</em> browser, right now. Nothing leaves your device.</p>
+          <ul class="mt-8 space-y-3 text-sm text-slate-400">
+            <li class="flex gap-3"><i data-lucide="cpu" class="w-5 h-5 text-cyan-400 shrink-0"></i> Automation flags (<code class="font-mono text-cyan-300">navigator.webdriver</code>, headless UA tokens)</li>
+            <li class="flex gap-3"><i data-lucide="memory-stick" class="w-5 h-5 text-cyan-400 shrink-0"></i> Hardware concurrency &amp; device memory profiling</li>
+            <li class="flex gap-3"><i data-lucide="monitor" class="w-5 h-5 text-cyan-400 shrink-0"></i> WebGL vendor / renderer (detects SwiftShader &amp; software rendering)</li>
+            <li class="flex gap-3"><i data-lucide="activity" class="w-5 h-5 text-cyan-400 shrink-0"></i> Network latency &amp; datacenter-proxy heuristics</li>
+          </ul>
+          <button id="scanBtn" type="button" class="mt-10 inline-flex items-center gap-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-6 py-3.5 transition-colors disabled:opacity-60 disabled:cursor-wait">
+            <i data-lucide="radar" class="w-5 h-5"></i> <span id="scanBtnLabel">Run Diagnostic Scan</span>
+          </button>
+        </div>
+
+        <!-- HUD -->
+        <div class="relative rounded-2xl border border-cyan-500/30 bg-slate-950/90 overflow-hidden shadow-[0_0_60px_-15px_rgba(34,211,238,.4)]">
+          <div class="flex items-center justify-between px-5 py-3 border-b border-slate-800 bg-slate-900/80 font-mono text-xs">
+            <span class="flex items-center gap-2 text-slate-400"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span><span class="ml-2">clickbots://inspector</span></span>
+            <span id="scanStatus" class="text-slate-500">IDLE</span>
+          </div>
+          <div id="scanLine" class="hidden absolute left-0 right-0 h-px bg-cyan-400 shadow-[0_0_12px_#22d3ee] animate-scanline" aria-hidden="true"></div>
+
+          <div class="p-5 sm:p-6">
+            <!-- Score gauge -->
+            <div class="flex items-center gap-5">
+              <div class="relative w-24 h-24 shrink-0">
+                <svg viewBox="0 0 100 100" class="w-24 h-24 -rotate-90" aria-hidden="true">
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="#1e293b" stroke-width="8" />
+                  <circle id="scoreRing" cx="50" cy="50" r="42" fill="none" stroke="#10b981" stroke-width="8" stroke-linecap="round" stroke-dasharray="263.9" stroke-dashoffset="263.9" style="transition: stroke-dashoffset 1s ease, stroke .3s" />
+                </svg>
+                <span id="scoreValue" class="absolute inset-0 grid place-items-center font-mono text-2xl font-bold text-white">--</span>
+              </div>
+              <div>
+                <p class="font-mono text-[11px] uppercase tracking-widest text-slate-500">Human Fingerprint Score</p>
+                <p id="scoreVerdict" class="mt-1 text-lg font-bold text-slate-300">Awaiting scan…</p>
+                <p id="scoreSub" class="text-xs text-slate-500">Click “Run Diagnostic Scan” to audit this browser.</p>
+              </div>
+            </div>
+
+            <ul id="scanResults" class="mt-6 divide-y divide-slate-800/80 border-y border-slate-800/80 font-mono text-xs sm:text-sm" aria-live="polite"></ul>
+
+            <pre id="scanLog" class="mt-4 h-24 overflow-y-auto rounded-lg bg-black/60 border border-slate-800 p-3 font-mono text-[11px] leading-relaxed text-emerald-400/90 whitespace-pre-wrap" aria-label="Scan log">&gt; inspector ready. awaiting command_</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== SOFTWARE MATRIX ============================== -->
+    <section id="matrix" class="scroll-mt-20 py-20 sm:py-28 border-t border-slate-900" aria-labelledby="matrix-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div class="max-w-3xl">
+            <p class="font-mono text-xs uppercase tracking-widest text-emerald-400">// Module 03 — The Software Matrix</p>
+            <h2 id="matrix-title" class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">Top 4 Click Fraud Protection Platforms</h2>
+            <p class="mt-4 text-slate-400 text-lg">Ranked by detection depth, platform coverage, and value for media buyers. Most offer a free trial — run one alongside your current campaigns and compare invalid-traffic reports.</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-xs font-mono">Pricing is indicative and subject to change. Verify current plans on each vendor's site.</p>
+        </div>
+
+        <!-- Desktop table -->
+        <div class="mt-12 hidden lg:block overflow-x-auto rounded-2xl border border-slate-800">
+          <table class="w-full text-left text-sm">
+            <caption class="sr-only">Comparison of click fraud protection software</caption>
+            <thead class="bg-slate-900/80 font-mono text-[11px] uppercase tracking-wider text-slate-400">
+              <tr>
+                <th scope="col" class="px-5 py-4">Tool</th>
+                <th scope="col" class="px-5 py-4">Rating</th>
+                <th scope="col" class="px-5 py-4">Supported Platforms</th>
+                <th scope="col" class="px-5 py-4">Primary Strengths</th>
+                <th scope="col" class="px-5 py-4">Pricing</th>
+                <th scope="col" class="px-5 py-4"><span class="sr-only">Action</span></th>
+              </tr>
+            </thead>
+            <tbody id="matrixTable" class="divide-y divide-slate-800"></tbody>
+          </table>
+        </div>
+
+        <!-- Mobile / tablet cards -->
+        <div id="matrixCards" class="mt-10 grid sm:grid-cols-2 gap-5 lg:hidden"></div>
+
+        <p class="mt-6 text-xs text-slate-500 flex items-start gap-2"><i data-lucide="info" class="w-4 h-4 shrink-0"></i> Affiliate disclosure: Clickbots.com may earn a commission when you start a trial or purchase through these links, at no extra cost to you. Rankings are editorially independent.</p>
+      </div>
+    </section>
+
+    <!-- ============================== LEAD MAGNET ============================== -->
+    <section id="checklist" class="scroll-mt-20 py-20 sm:py-24 border-t border-slate-900" aria-labelledby="lead-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="relative overflow-hidden rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-emerald-950/50 via-slate-900 to-cyan-950/40 p-8 sm:p-12 grid lg:grid-cols-2 gap-10 items-center">
+          <div class="absolute inset-0 bg-grid opacity-60 pointer-events-none" aria-hidden="true"></div>
+          <div class="relative">
+            <span class="inline-flex items-center gap-2 rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 font-mono text-[11px] text-emerald-300"><i data-lucide="file-down" class="w-3.5 h-3.5"></i> FREE PDF · 2026 EDITION</span>
+            <h2 id="lead-title" class="mt-4 text-3xl sm:text-4xl font-black tracking-tight text-white">Download the 2026 PPC Bot Audit Checklist</h2>
+            <p class="mt-4 text-slate-300">A 27-point field checklist used by performance agencies to find invalid traffic in Google Ads, Meta and TikTok — before it hits the P&amp;L.</p>
+            <ul class="mt-6 grid sm:grid-cols-2 gap-2 text-sm text-slate-300">
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 mt-0.5"></i> GA4 bot-segment recipes</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 mt-0.5"></i> Placement exclusion lists</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 mt-0.5"></i> Refund claim templates</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 mt-0.5"></i> Form-spam honeypot setup</li>
+            </ul>
+          </div>
+          <form id="leadForm" class="relative rounded-2xl border border-slate-800 bg-slate-950/80 p-6 sm:p-8" novalidate data-form="checklist">
+            <label for="leadEmail" class="text-sm font-semibold text-slate-200">Work email</label>
+            <div class="mt-2 flex flex-col sm:flex-row gap-3">
+              <input id="leadEmail" name="email" type="email" required autocomplete="email" placeholder="you@agency.com"
+                class="flex-1 rounded-xl bg-slate-900 border border-slate-700 focus:border-emerald-500 px-4 py-3 text-white placeholder:text-slate-500" />
+              <!-- Honeypot field (hidden from humans) to filter form bots -->
+              <input type="text" name="company_website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+              <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-3 transition-colors">
+                <i data-lucide="download" class="w-4 h-4"></i> Get the Checklist
+              </button>
+            </div>
+            <p class="form-error mt-2 text-sm text-red-400 hidden" role="alert"></p>
+            <p class="form-success mt-3 text-sm text-emerald-300 hidden" role="status"></p>
+            <p class="mt-4 text-xs text-slate-500">No spam. Unsubscribe anytime. We never sell your data.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ACQUISITION BANNER ============================== -->
+    <section id="acquire" class="scroll-mt-20 py-16 border-t border-slate-900" aria-labelledby="acq-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="flex gap-5">
+            <span class="hidden sm:grid place-items-center w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 shrink-0"><i data-lucide="gem" class="w-7 h-7 text-amber-400"></i></span>
+            <div>
+              <p class="font-mono text-[11px] uppercase tracking-widest text-amber-400">Premium Domain · Strategic Acquisition</p>
+              <h2 id="acq-title" class="mt-2 text-xl sm:text-2xl font-bold text-white">Interested in acquiring Clickbots.com for your AdTech brand or cybersecurity startup?</h2>
+              <p class="mt-2 text-slate-400">Exact-match category domain with built-in tooling and affiliate infrastructure. Submit an inquiry — all offers reviewed confidentially.</p>
+            </div>
+          </div>
+          <button type="button" data-open-modal="inquiryModal" class="shrink-0 inline-flex items-center justify-center gap-2 rounded-xl border border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 font-semibold px-6 py-3.5 transition-colors">
+            <i data-lucide="send" class="w-4 h-4"></i> Submit an Inquiry
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="border-t border-slate-800 bg-black/40">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 grid gap-10 md:grid-cols-4">
+      <div class="md:col-span-2">
+        <a href="#top" class="font-extrabold text-white text-lg">Clickbots<span class="text-emerald-400">.com</span></a>
+        <p class="mt-3 text-sm text-slate-400 max-w-sm">Independent research, calculators and reviews for PPC click fraud detection and ad protection software.</p>
+        <p class="mt-4 font-mono text-[11px] text-emerald-500/80">SYS_STATUS: ALL MONITORS OPERATIONAL</p>
+      </div>
+      <nav aria-label="Tools">
+        <p class="font-mono text-[11px] uppercase tracking-widest text-slate-500">Tools</p>
+        <ul class="mt-3 space-y-2 text-sm text-slate-400">
+          <li><a href="#calculator" class="hover:text-emerald-400">Ad Waste Calculator</a></li>
+          <li><a href="#scanner" class="hover:text-emerald-400">Bot Inspector</a></li>
+          <li><a href="#matrix" class="hover:text-emerald-400">Software Matrix</a></li>
+          <li><a href="#checklist" class="hover:text-emerald-400">Bot Audit Checklist</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Company">
+        <p class="font-mono text-[11px] uppercase tracking-widest text-slate-500">Company</p>
+        <ul class="mt-3 space-y-2 text-sm text-slate-400">
+          <li><button type="button" data-open-modal="inquiryModal" class="hover:text-amber-400">Domain Inquiries</button></li>
+          <li><button type="button" data-open-modal="leadModal" class="hover:text-emerald-400">Free PDF Checklist</button></li>
+          <li><a href="mailto:hello@clickbots.com" class="hover:text-emerald-400">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="border-t border-slate-900">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 text-xs text-slate-500 space-y-2">
+        <p><strong class="text-slate-400">Disclaimer:</strong> Clickbots.com provides independent reviews and receives compensation from affiliate partners. Compensation does not influence our rankings. Calculator outputs and scanner results are estimates for educational purposes only and do not constitute financial or security advice. All trademarks belong to their respective owners.</p>
+        <p>&copy; <span id="year"></span> Clickbots.com. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================== MODALS ============================== -->
+  <!-- Domain acquisition inquiry modal -->
+  <div id="inquiryModal" class="modal fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4" aria-hidden="true">
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" data-close-modal></div>
+    <div role="dialog" aria-modal="true" aria-labelledby="inquiryTitle" class="relative w-full sm:max-w-lg max-h-[95vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl border border-amber-500/30 bg-slate-950 p-6 sm:p-8">
+      <button type="button" data-close-modal class="absolute top-4 right-4 w-9 h-9 grid place-items-center rounded-lg text-slate-400 hover:bg-slate-800" aria-label="Close dialog"><i data-lucide="x" class="w-5 h-5"></i></button>
+      <p class="font-mono text-[11px] uppercase tracking-widest text-amber-400">Confidential Inquiry</p>
+      <h2 id="inquiryTitle" class="mt-2 text-2xl font-bold text-white">Acquire Clickbots.com</h2>
+      <p class="mt-1 text-sm text-slate-400">Serious inquiries receive a response within 48 hours.</p>
+      <form id="inquiryForm" class="mt-6 space-y-4" novalidate data-form="acquisition">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="inqName" class="text-sm font-medium text-slate-300">Name</label>
+            <input id="inqName" name="name" type="text" required autocomplete="name" class="mt-1.5 w-full rounded-lg bg-slate-900 border border-slate-700 focus:border-amber-500 px-3 py-2.5 text-white" />
+          </div>
+          <div>
+            <label for="inqCompany" class="text-sm font-medium text-slate-300">Company</label>
+            <input id="inqCompany" name="company" type="text" required autocomplete="organization" class="mt-1.5 w-full rounded-lg bg-slate-900 border border-slate-700 focus:border-amber-500 px-3 py-2.5 text-white" />
+          </div>
+        </div>
+        <fieldset>
+          <legend class="text-sm font-medium text-slate-300">Offer Range</legend>
+          <div class="mt-2 grid grid-cols-3 gap-2">
+            <label class="cursor-pointer"><input type="radio" name="offer" value="$10k-$25k" class="peer sr-only" required /><span class="block text-center rounded-lg border border-slate-700 px-2 py-2.5 text-sm font-mono text-slate-300 peer-checked:border-amber-500 peer-checked:bg-amber-500/10 peer-checked:text-amber-300 peer-focus-visible:ring-2 peer-focus-visible:ring-cyan-400">$10k–$25k</span></label>
+            <label class="cursor-pointer"><input type="radio" name="offer" value="$25k-$50k" class="peer sr-only" /><span class="block text-center rounded-lg border border-slate-700 px-2 py-2.5 text-sm font-mono text-slate-300 peer-checked:border-amber-500 peer-checked:bg-amber-500/10 peer-checked:text-amber-300 peer-focus-visible:ring-2 peer-focus-visible:ring-cyan-400">$25k–$50k</span></label>
+            <label class="cursor-pointer"><input type="radio" name="offer" value="$50k+" class="peer sr-only" /><span class="block text-center rounded-lg border border-slate-700 px-2 py-2.5 text-sm font-mono text-slate-300 peer-checked:border-amber-500 peer-checked:bg-amber-500/10 peer-checked:text-amber-300 peer-focus-visible:ring-2 peer-focus-visible:ring-cyan-400">$50k+</span></label>
+          </div>
+        </fieldset>
+        <div>
+          <label for="inqEmail" class="text-sm font-medium text-slate-300">Email</label>
+          <input id="inqEmail" name="email" type="email" required autocomplete="email" class="mt-1.5 w-full rounded-lg bg-slate-900 border border-slate-700 focus:border-amber-500 px-3 py-2.5 text-white" />
+        </div>
+        <div>
+          <label for="inqMsg" class="text-sm font-medium text-slate-300">Message <span class="text-slate-500">(optional)</span></label>
+          <textarea id="inqMsg" name="message" rows="3" class="mt-1.5 w-full rounded-lg bg-slate-900 border border-slate-700 focus:border-amber-500 px-3 py-2.5 text-white"></textarea>
+        </div>
+        <input type="text" name="company_website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+        <p class="form-error text-sm text-red-400 hidden" role="alert"></p>
+        <p class="form-success text-sm text-emerald-300 hidden" role="status"></p>
+        <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3.5 transition-colors">
+          <i data-lucide="send" class="w-4 h-4"></i> Submit Inquiry
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lead magnet modal (exit-intent / footer trigger) -->
+  <div id="leadModal" class="modal fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4" aria-hidden="true">
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" data-close-modal></div>
+    <div role="dialog" aria-modal="true" aria-labelledby="leadModalTitle" class="relative w-full sm:max-w-md rounded-t-2xl sm:rounded-2xl border border-emerald-500/30 bg-slate-950 p-6 sm:p-8">
+      <button type="button" data-close-modal class="absolute top-4 right-4 w-9 h-9 grid place-items-center rounded-lg text-slate-400 hover:bg-slate-800" aria-label="Close dialog"><i data-lucide="x" class="w-5 h-5"></i></button>
+      <span class="grid place-items-center w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30"><i data-lucide="file-check-2" class="w-6 h-6 text-emerald-400"></i></span>
+      <h2 id="leadModalTitle" class="mt-4 text-2xl font-bold text-white">Before you go — grab the 2026 PPC Bot Audit Checklist</h2>
+      <p class="mt-2 text-sm text-slate-400">27 checks to find and claw back wasted spend. Free PDF, delivered instantly.</p>
+      <form class="mt-6 space-y-3" novalidate data-form="checklist-modal">
+        <label for="leadModalEmail" class="sr-only">Work email</label>
+        <input id="leadModalEmail" name="email" type="email" required autocomplete="email" placeholder="you@agency.com" class="w-full rounded-xl bg-slate-900 border border-slate-700 focus:border-emerald-500 px-4 py-3 text-white placeholder:text-slate-500" />
+        <input type="text" name="company_website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+        <p class="form-error text-sm text-red-400 hidden" role="alert"></p>
+        <p class="form-success text-sm text-emerald-300 hidden" role="status"></p>
+        <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-3 transition-colors"><i data-lucide="download" class="w-4 h-4"></i> Send Me the PDF</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================== APPLICATION SCRIPT ============================== -->
+  <script>
+  (() => {
+    'use strict';
+
+    /* ---------- CONFIG ----------
+       FORM_ENDPOINT: set to your backend / Formspree / Zapier / ESP webhook URL to receive submissions.
+       If left empty, submissions are stored locally (localStorage) so the UI still works in demo mode. */
+    const CONFIG = {
+      FORM_ENDPOINT: '',
+      EXIT_INTENT_DELAY_MS: 12000,
+    };
+
+    /* ---------- DATA ---------- */
+    // Industry benchmarks: default invalid-traffic rate (%) and average CPC ($).
+    const INDUSTRIES = {
+      legal:     { label: 'Legal',          fraud: 32, cpc: 65.0, note: 'Legal keywords ("injury lawyer", "DUI attorney") carry the highest CPCs — a prime target for competitor and click-farm fraud.' },
+      home:      { label: 'Home Services',  fraud: 24, cpc: 9.5,  note: 'Local service ads are heavily hit by competitor clicking and lead-gen arbitrage bots.' },
+      finance:   { label: 'Finance',        fraud: 27, cpc: 18.5, note: 'Loans, insurance and trading terms attract sophisticated residential-proxy bot networks.' },
+      ecommerce: { label: 'eCommerce',      fraud: 12, cpc: 3.5,  note: 'Lower CPCs but high volume — Shopping & PMax placements leak spend to scraper bots.' },
+      saas:      { label: 'B2B SaaS',       fraud: 20, cpc: 14.0, note: 'Display & LinkedIn-style placements generate fake demo requests and form spam.' },
+    };
+
+    // Affiliate partners. Replace `url` values with your tracked affiliate links.
+    const TOOLS = [
+      { name: 'Lunio', badge: 'Best for Enterprise & Cross-Channel', rating: 4.8, accent: 'emerald',
+        platforms: ['Google', 'Meta', 'TikTok', 'LinkedIn', 'Microsoft'],
+        strengths: ['Cross-channel invalid-traffic exclusion', 'Audience syncing to clean ad platform signals', 'Agency-grade reporting'],
+        pricing: 'Custom / spend-based', url: 'https://www.lunio.ai/?ref=clickbots', cta: 'Request Free Trial' },
+      { name: 'ClickCease', sub: 'CHEQ Essentials', badge: 'Best for SMBs & Local Google Ads', rating: 4.6, accent: 'cyan',
+        platforms: ['Google', 'Microsoft', 'Meta'],
+        strengths: ['Automated IP & device exclusions', 'Session recordings & VPN blocking', 'Fast 5-minute setup'],
+        pricing: 'From ~$80/mo', url: 'https://www.clickcease.com/?ref=clickbots', cta: 'Claim Free Trial' },
+      { name: 'CHEQ Paradome', badge: 'Best for Mid-Market Security', rating: 4.5, accent: 'violet',
+        platforms: ['Google', 'Meta', 'Microsoft', 'Programmatic'],
+        strengths: ['Go-to-market security suite', 'Bot & fake-lead protection for funnels', 'Analytics data hygiene'],
+        pricing: 'Custom quote', url: 'https://cheq.ai/?ref=clickbots', cta: 'Book Demo' },
+      { name: 'TrafficGuard', badge: 'Best for Mobile & Programmatic', rating: 4.4, accent: 'amber',
+        platforms: ['Google', 'Mobile App', 'Programmatic', 'Affiliate'],
+        strengths: ['App-install & attribution fraud', 'Multi-point verification (impression → event)', 'Free tier for small Google Ads spend'],
+        pricing: 'Free tier · paid plans scale', url: 'https://www.trafficguard.ai/?ref=clickbots', cta: 'Start Free' },
+    ];
+
+    const TICKER_ITEMS = [
+      ['red', 'BLOCKED', 'Headless Chrome cluster · AWS us-east-1 · 1,284 clicks'],
+      ['amber', 'FLAGGED', 'Residential proxy rotation · Search Partners'],
+      ['emerald', 'PROTECTED', '$4,812 recovered · Legal / Personal Injury'],
+      ['red', 'BLOCKED', 'Click-farm device pool · Display placements'],
+      ['amber', 'FLAGGED', 'Form-fill bot · Meta Lead Ads'],
+      ['emerald', 'PROTECTED', 'TikTok Spark Ads · 18% IVT filtered'],
+      ['red', 'BLOCKED', 'Competitor repeat-clicker · Home Services'],
+      ['amber', 'FLAGGED', 'Datacenter ASN · PMax / Shopping'],
+    ];
+
+    /* ---------- HELPERS ---------- */
+    const $ = (sel, root = document) => root.querySelector(sel);
+    const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+    const usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+    const num = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
+    const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+    const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const refreshIcons = () => window.lucide && window.lucide.createIcons();
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+    // Smoothly animate a numeric readout from its previous value.
+    function animateValue(el, to, formatter) {
+      const from = Number(el.dataset.value || 0);
+      el.dataset.value = to;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || from === to) { el.textContent = formatter(to); return; }
+      const start = performance.now(), dur = 450;
+      const step = (now) => {
+        const t = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = formatter(from + (to - from) * eased);
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    /* ---------- TICKER ---------- */
+    function renderTicker() {
+      const colors = { red: 'text-red-400', amber: 'text-amber-400', emerald: 'text-emerald-400' };
+      const html = TICKER_ITEMS.map(([c, tag, text]) =>
+        `<span class="mx-6 inline-flex items-center gap-2"><span class="${colors[c]} font-bold">[${tag}]</span><span class="text-slate-400">${escapeHtml(text)}</span></span>`
+      ).join('');
+      // Duplicate content so the CSS loop is seamless.
+      $('#ticker').innerHTML = html + `<span aria-hidden="true" class="contents">${html}</span>`;
+    }
+
+    /* ---------- AD WASTE CALCULATOR ---------- */
+    const calc = {
+      spendRange: $('#spendRange'), spendNumber: $('#spendNumber'), industry: $('#industry'),
+      fraudRate: $('#fraudRate'), cpc: $('#cpc'), convRate: $('#convRate'),
+    };
+
+    function initCalculator() {
+      calc.industry.innerHTML = Object.entries(INDUSTRIES)
+        .map(([k, v]) => `<option value="${k}">${v.label} — ${v.fraud}% IVT · $${v.cpc.toFixed(2)} CPC</option>`).join('');
+      calc.industry.value = 'legal';
+      applyIndustryDefaults();
+
+      calc.spendRange.addEventListener('input', () => { calc.spendNumber.value = calc.spendRange.value; updateCalculator(); });
+      calc.spendNumber.addEventListener('input', () => {
+        const v = Number(calc.spendNumber.value);
+        if (!Number.isNaN(v)) calc.spendRange.value = clamp(v, 1000, 200000);
+        updateCalculator();
+      });
+      // Snap out-of-range typed values back into bounds on blur.
+      calc.spendNumber.addEventListener('blur', () => {
+        calc.spendNumber.value = clamp(Number(calc.spendNumber.value) || 1000, 1000, 200000);
+        calc.spendRange.value = calc.spendNumber.value;
+        updateCalculator();
+      });
+      calc.industry.addEventListener('change', applyIndustryDefaults);
+      [calc.fraudRate, calc.cpc, calc.convRate].forEach((el) => el.addEventListener('input', updateCalculator));
+    }
+
+    function applyIndustryDefaults() {
+      const ind = INDUSTRIES[calc.industry.value];
+      calc.fraudRate.value = ind.fraud;
+      calc.cpc.value = ind.cpc.toFixed(2);
+      $('#industryNote').textContent = `> ${ind.note}`;
+      updateCalculator();
+    }
+
+    function updateCalculator() {
+      const spend = clamp(Number(calc.spendNumber.value) || 0, 0, 200000);
+      const fraud = clamp(Number(calc.fraudRate.value) || 0, 0, 100) / 100;
+      const cpc = Math.max(0.01, Number(calc.cpc.value) || 0.01);
+      const conv = clamp(Number(calc.convRate.value) || 0, 0, 100) / 100;
+
+      const monthlyLost = spend * fraud;
+      const annualLost = monthlyLost * 12;
+      const fakeClicks = monthlyLost / cpc;
+      const recoverableConv = fakeClicks * conv;
+
+      animateValue($('#outMonthly'), monthlyLost, usd.format);
+      animateValue($('#outAnnual'), annualLost, usd.format);
+      animateValue($('#outClicks'), fakeClicks, num.format);
+      animateValue($('#outConv'), recoverableConv, (v) => (v < 10 ? v.toFixed(1) : num.format(v)));
+      $('#ctaAmount').textContent = usd.format(monthlyLost);
+
+      const pf = Math.round(fraud * 100);
+      $('#barFraud').style.width = pf + '%';
+      $('#barClean').style.width = (100 - pf) + '%';
+      $('#pctFraud').textContent = pf + '%';
+      $('#pctClean').textContent = (100 - pf) + '%';
+      $('#splitBarLabel').setAttribute('aria-label', `${100 - pf}% clean traffic, ${pf}% invalid traffic`);
+    }
+
+    /* ---------- BOT ENVIRONMENT SCANNER ---------- */
+    const scanState = { running: false };
+
+    function log(line) {
+      const el = $('#scanLog');
+      el.textContent += `\n> ${line}`;
+      el.scrollTop = el.scrollHeight;
+    }
+
+    function getWebGLInfo() {
+      try {
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return { vendor: 'unavailable', renderer: 'unavailable', supported: false };
+        const ext = gl.getExtension('WEBGL_debug_renderer_info');
+        return {
+          supported: true,
+          vendor: ext ? gl.getParameter(ext.UNMASKED_VENDOR_WEBGL) : gl.getParameter(gl.VENDOR),
+          renderer: ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER),
+        };
+      } catch (e) { return { vendor: 'error', renderer: 'error', supported: false }; }
+    }
+
+    // Measures real round-trip time to a CDN; falls back to a simulated value offline.
+    async function measureLatency() {
+      const target = 'https://unpkg.com/lucide@latest/package.json?cb=' + Date.now();
+      const t0 = performance.now();
+      try {
+        const ctrl = new AbortController();
+        const to = setTimeout(() => ctrl.abort(), 4000);
+        await fetch(target, { mode: 'no-cors', cache: 'no-store', signal: ctrl.signal });
+        clearTimeout(to);
+        return { ms: Math.round(performance.now() - t0), simulated: false };
+      } catch (e) {
+        return { ms: Math.round(40 + Math.random() * 80), simulated: true };
+      }
+    }
+
+    // Each check returns { label, value, status: 'pass' | 'warn' | 'fail', weight }
+    async function runChecks() {
+      const nav = navigator;
+      const checks = [];
+
+      const wd = nav.webdriver === true;
+      checks.push({ label: 'navigator.webdriver', value: String(!!nav.webdriver), status: wd ? 'fail' : 'pass', weight: 30 });
+
+      const ua = nav.userAgent || '';
+      const headless = /HeadlessChrome|PhantomJS|Puppeteer|Playwright|Selenium|bot|crawl|spider/i.test(ua);
+      checks.push({ label: 'User-Agent tokens', value: headless ? 'automation token found' : 'clean', status: headless ? 'fail' : 'pass', weight: 15 });
+
+      const cores = nav.hardwareConcurrency || 0;
+      checks.push({ label: 'hardwareConcurrency', value: cores ? `${cores} logical cores` : 'hidden', status: cores >= 2 ? 'pass' : (cores === 0 ? 'warn' : 'fail'), weight: 10 });
+
+      const mem = nav.deviceMemory;
+      checks.push({ label: 'deviceMemory', value: mem ? `${mem} GB` : 'not exposed (Safari/Firefox)', status: mem === undefined ? 'warn' : (mem >= 2 ? 'pass' : 'fail'), weight: 5 });
+
+      const gl = getWebGLInfo();
+      const softGL = /SwiftShader|llvmpipe|Mesa OffScreen|Software|Microsoft Basic Render/i.test(`${gl.vendor} ${gl.renderer}`);
+      checks.push({ label: 'WebGL renderer', value: gl.supported ? `${gl.vendor} · ${gl.renderer}` : 'WebGL disabled',
+        status: !gl.supported ? 'warn' : (softGL ? 'fail' : 'pass'), weight: 15 });
+
+      const langs = (nav.languages && nav.languages.length) || 0;
+      checks.push({ label: 'navigator.languages', value: langs ? nav.languages.slice(0, 3).join(', ') : 'empty', status: langs ? 'pass' : 'fail', weight: 8 });
+
+      const screenOk = screen.width > 0 && screen.height > 0 && !(screen.width === 800 && screen.height === 600);
+      checks.push({ label: 'Screen geometry', value: `${screen.width}×${screen.height} @${window.devicePixelRatio || 1}x`, status: screenOk ? 'pass' : 'warn', weight: 7 });
+
+      const lat = await measureLatency();
+      // Sub-5ms RTT to a public CDN is typical of datacenter-hosted bots.
+      const latStatus = lat.ms < 5 ? 'warn' : 'pass';
+      checks.push({ label: 'Network latency (RTT)', value: `${lat.ms} ms${lat.simulated ? ' (simulated)' : ''} · ${Intl.DateTimeFormat().resolvedOptions().timeZone || 'tz?'}`, status: latStatus, weight: 10 });
+
+      return checks;
+    }
+
+    function renderCheckRow(c) {
+      const tag = {
+        pass: '<span class="shrink-0 rounded px-2 py-0.5 text-[10px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">HUMAN</span>',
+        warn: '<span class="shrink-0 rounded px-2 py-0.5 text-[10px] font-bold bg-amber-500/15 text-amber-300 border border-amber-500/30">NEUTRAL</span>',
+        fail: '<span class="shrink-0 rounded px-2 py-0.5 text-[10px] font-bold bg-red-500/15 text-red-300 border border-red-500/30">BOT SIGNAL</span>',
+      }[c.status];
+      return `<li class="flex items-center justify-between gap-3 py-2.5">
+        <div class="min-w-0"><p class="text-slate-300">${escapeHtml(c.label)}</p><p class="text-slate-500 text-[11px] truncate" title="${escapeHtml(c.value)}">${escapeHtml(c.value)}</p></div>${tag}</li>`;
+    }
+
+    async function startScan() {
+      if (scanState.running) return;
+      scanState.running = true;
+      const btn = $('#scanBtn');
+      btn.disabled = true;
+      $('#scanBtnLabel').textContent = 'Scanning…';
+      $('#scanStatus').textContent = 'SCANNING';
+      $('#scanStatus').className = 'text-cyan-400 animate-pulse';
+      $('#scanLine').classList.remove('hidden');
+      $('#scanResults').innerHTML = '';
+      $('#scanLog').textContent = '> initializing fingerprint probes…';
+      $('#scoreValue').textContent = '--';
+      $('#scoreRing').style.strokeDashoffset = 263.9;
+      $('#scoreVerdict').textContent = 'Analyzing…';
+      $('#scoreVerdict').className = 'mt-1 text-lg font-bold text-cyan-300';
+
+      const checks = await runChecks();
+      for (const c of checks) {
+        await sleep(280);
+        $('#scanResults').insertAdjacentHTML('beforeend', renderCheckRow(c));
+        log(`${c.label.padEnd(22, '.')} ${c.status.toUpperCase()}`);
+      }
+
+      // Score: full weight for pass, half for neutral, zero for bot signals.
+      const total = checks.reduce((s, c) => s + c.weight, 0);
+      const got = checks.reduce((s, c) => s + (c.status === 'pass' ? c.weight : c.status === 'warn' ? c.weight * 0.5 : 0), 0);
+      const score = Math.round((got / total) * 100);
+      const ring = $('#scoreRing');
+      ring.style.strokeDashoffset = 263.9 * (1 - score / 100);
+      ring.style.stroke = score >= 80 ? '#10b981' : score >= 55 ? '#f59e0b' : '#ef4444';
+      $('#scoreValue').textContent = score;
+
+      const verdict = $('#scoreVerdict');
+      if (score >= 80) {
+        verdict.textContent = 'Human Fingerprint Verified';
+        verdict.className = 'mt-1 text-lg font-bold text-emerald-400';
+        $('#scoreSub').textContent = 'This browser would pass standard click-fraud filters.';
+      } else if (score >= 55) {
+        verdict.textContent = 'Inconclusive — Privacy-Hardened';
+        verdict.className = 'mt-1 text-lg font-bold text-amber-400';
+        $('#scoreSub').textContent = 'Some signals masked. Privacy browsers often land here.';
+      } else {
+        verdict.textContent = 'Automation Signatures Detected';
+        verdict.className = 'mt-1 text-lg font-bold text-red-400';
+        $('#scoreSub').textContent = 'Traffic like this should be excluded from your campaigns.';
+      }
+      log(`scan complete · human_score=${score}/100`);
+
+      $('#scanLine').classList.add('hidden');
+      $('#scanStatus').textContent = 'COMPLETE';
+      $('#scanStatus').className = 'text-emerald-400';
+      $('#scanBtnLabel').textContent = 'Re-run Scan';
+      btn.disabled = false;
+      scanState.running = false;
+    }
+
+    /* ---------- SOFTWARE MATRIX ---------- */
+    function stars(rating) {
+      const full = Math.floor(rating), half = rating - full >= 0.5;
+      let out = '';
+      for (let i = 0; i < 5; i++) {
+        const fill = i < full ? 'fill-amber-400 text-amber-400' : (i === full && half ? 'fill-amber-400/50 text-amber-400' : 'text-slate-700');
+        out += `<i data-lucide="star" class="w-4 h-4 ${fill}" aria-hidden="true"></i>`;
+      }
+      return `<span class="inline-flex items-center gap-0.5" role="img" aria-label="Rated ${rating} out of 5">${out}<span class="ml-1.5 font-mono text-sm text-white">${rating.toFixed(1)}</span></span>`;
+    }
+    const accentClasses = {
+      emerald: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30',
+      cyan: 'bg-cyan-500/10 text-cyan-300 border-cyan-500/30',
+      violet: 'bg-violet-500/10 text-violet-300 border-violet-500/30',
+      amber: 'bg-amber-500/10 text-amber-300 border-amber-500/30',
+    };
+    const platformChips = (t) => t.platforms.map((p) => `<span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-0.5 text-[11px] font-mono text-slate-300">${escapeHtml(p)}</span>`).join('');
+    const ctaLink = (t, extra = '') => `<a href="${t.url}" target="_blank" rel="sponsored noopener" data-affiliate="${escapeHtml(t.name)}"
+        class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2.5 text-sm whitespace-nowrap transition-colors ${extra}">
+        ${escapeHtml(t.cta)} <i data-lucide="arrow-up-right" class="w-4 h-4"></i><span class="sr-only">(opens ${escapeHtml(t.name)} in a new tab)</span></a>`;
+
+    function renderMatrix() {
+      $('#matrixTable').innerHTML = TOOLS.map((t, i) => `
+        <tr class="${i === 0 ? 'bg-emerald-500/[0.04]' : 'bg-slate-950'} hover:bg-slate-900/60 transition-colors align-top">
+          <td class="px-5 py-6">
+            <div class="flex items-start gap-3">
+              <span class="font-mono text-xs text-slate-500 mt-1">#${i + 1}</span>
+              <div>
+                <p class="font-bold text-white text-base">${escapeHtml(t.name)}${t.sub ? ` <span class="text-slate-400 font-medium text-sm">/ ${escapeHtml(t.sub)}</span>` : ''}</p>
+                <span class="mt-2 inline-block rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${accentClasses[t.accent]}">${escapeHtml(t.badge)}</span>
+              </div>
+            </div>
+          </td>
+          <td class="px-5 py-6">${stars(t.rating)}</td>
+          <td class="px-5 py-6"><div class="flex flex-wrap gap-1.5 max-w-[220px]">${platformChips(t)}</div></td>
+          <td class="px-5 py-6"><ul class="space-y-1.5 text-slate-400">${t.strengths.map((s) => `<li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>${escapeHtml(s)}</li>`).join('')}</ul></td>
+          <td class="px-5 py-6 font-mono text-slate-200">${escapeHtml(t.pricing)}</td>
+          <td class="px-5 py-6 text-right">${ctaLink(t)}</td>
+        </tr>`).join('');
+
+      $('#matrixCards').innerHTML = TOOLS.map((t, i) => `
+        <article class="rounded-2xl border ${i === 0 ? 'border-emerald-500/40 glow-emerald' : 'border-slate-800'} bg-slate-900/50 p-6 flex flex-col">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="font-mono text-xs text-slate-500">#${i + 1}</p>
+              <h3 class="text-xl font-bold text-white">${escapeHtml(t.name)}</h3>
+              ${t.sub ? `<p class="text-sm text-slate-400">${escapeHtml(t.sub)}</p>` : ''}
+            </div>
+            ${stars(t.rating)}
+          </div>
+          <span class="mt-3 self-start rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${accentClasses[t.accent]}">${escapeHtml(t.badge)}</span>
+          <div class="mt-4 flex flex-wrap gap-1.5">${platformChips(t)}</div>
+          <ul class="mt-4 space-y-1.5 text-sm text-slate-400 flex-1">${t.strengths.map((s) => `<li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>${escapeHtml(s)}</li>`).join('')}</ul>
+          <div class="mt-5 pt-4 border-t border-slate-800 flex items-center justify-between gap-3">
+            <span class="font-mono text-sm text-slate-200">${escapeHtml(t.pricing)}</span>
+            ${ctaLink(t)}
+          </div>
+        </article>`).join('');
+    }
+
+    /* ---------- MODALS (accessible: focus trap, ESC, restore focus) ---------- */
+    let activeModal = null, lastFocused = null;
+    const FOCUSABLE = 'a[href], button:not([disabled]), input:not([type=hidden]):not([tabindex="-1"]), select, textarea, [tabindex]:not([tabindex="-1"])';
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal || activeModal === modal) return;
+      if (activeModal) closeModal();
+      lastFocused = document.activeElement;
+      activeModal = modal;
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      $$('header, main, footer').forEach((el) => el.setAttribute('inert', ''));
+      const first = $$(FOCUSABLE, modal).find((el) => el.offsetParent !== null && !el.closest('[data-close-modal]'));
+      setTimeout(() => (first || modal).focus(), 50);
+    }
+
+    function closeModal() {
+      if (!activeModal) return;
+      activeModal.setAttribute('aria-hidden', 'true');
+      activeModal = null;
+      document.body.style.overflow = '';
+      $$('header, main, footer').forEach((el) => el.removeAttribute('inert'));
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+
+    function initModals() {
+      document.addEventListener('click', (e) => {
+        const opener = e.target.closest('[data-open-modal]');
+        if (opener) { e.preventDefault(); openModal(opener.dataset.openModal); return; }
+        if (e.target.closest('[data-close-modal]')) closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (!activeModal) return;
+        if (e.key === 'Escape') { closeModal(); return; }
+        if (e.key === 'Tab') {
+          const items = $$(FOCUSABLE, activeModal).filter((el) => el.offsetParent !== null);
+          if (!items.length) return;
+          const first = items[0], last = items[items.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      });
+
+      // Exit-intent lead magnet (desktop only, once per session, skipped for existing subscribers).
+      const seen = () => sessionStorage.getItem('cb_lead_prompted') || localStorage.getItem('cb_subscribed');
+      setTimeout(() => {
+        document.addEventListener('mouseout', (e) => {
+          if (seen() || activeModal || e.relatedTarget || e.clientY > 10) return;
+          sessionStorage.setItem('cb_lead_prompted', '1');
+          openModal('leadModal');
+        });
+      }, CONFIG.EXIT_INTENT_DELAY_MS);
+    }
+
+    /* ---------- FORMS ---------- */
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    async function submitLead(type, payload) {
+      const record = { type, ...payload, page: location.href, ts: new Date().toISOString() };
+      if (CONFIG.FORM_ENDPOINT) {
+        const res = await fetch(CONFIG.FORM_ENDPOINT, {
+          method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(record),
+        });
+        if (!res.ok) throw new Error('Network response was not ok');
+      } else {
+        // Demo mode: persist locally so nothing is lost while a backend is wired up.
+        const key = 'cb_submissions';
+        const all = JSON.parse(localStorage.getItem(key) || '[]');
+        all.push(record);
+        localStorage.setItem(key, JSON.stringify(all));
+        await sleep(500);
+      }
+    }
+
+    function initForms() {
+      $$('form[data-form]').forEach((form) => {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const err = $('.form-error', form), ok = $('.form-success', form), btn = $('button[type=submit]', form);
+          err.classList.add('hidden'); ok.classList.add('hidden');
+          const data = Object.fromEntries(new FormData(form).entries());
+
+          // Honeypot: silently accept bot submissions without storing them.
+          if (data.company_website) { ok.textContent = 'Thanks!'; ok.classList.remove('hidden'); return; }
+          delete data.company_website;
+
+          const fail = (msg, field) => {
+            err.textContent = msg; err.classList.remove('hidden');
+            if (field) { field.setAttribute('aria-invalid', 'true'); field.focus(); }
+          };
+          $$('[aria-invalid]', form).forEach((f) => f.removeAttribute('aria-invalid'));
+
+          const type = form.dataset.form;
+          if (type === 'acquisition') {
+            if (!data.name || !data.name.trim()) return fail('Please enter your name.', form.elements.name);
+            if (!data.company || !data.company.trim()) return fail('Please enter your company.', form.elements.company);
+            if (!data.offer) return fail('Please select an offer range.', form.querySelector('input[name=offer]'));
+          }
+          if (!EMAIL_RE.test(data.email || '')) return fail('Please enter a valid email address.', form.elements.email);
+
+          const original = btn.innerHTML;
+          btn.disabled = true; btn.textContent = 'Submitting…';
+          try {
+            await submitLead(type, data);
+            form.reset();
+            if (type.startsWith('checklist')) {
+              localStorage.setItem('cb_subscribed', '1');
+              ok.textContent = '✓ Done! The 2026 PPC Bot Audit Checklist is on its way to your inbox.';
+            } else {
+              ok.textContent = '✓ Inquiry received. We will respond confidentially within 48 hours.';
+            }
+            ok.classList.remove('hidden');
+          } catch (ex) {
+            fail('Something went wrong. Please try again or email hello@clickbots.com.');
+          } finally {
+            btn.disabled = false; btn.innerHTML = original; refreshIcons();
+          }
+        });
+      });
+    }
+
+    /* ---------- NAV ---------- */
+    function initNav() {
+      const toggle = $('#menuToggle'), menu = $('#mobileMenu');
+      const setOpen = (open) => {
+        menu.classList.toggle('hidden', !open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      };
+      toggle.addEventListener('click', () => setOpen(menu.classList.contains('hidden')));
+      $$('a', menu).forEach((a) => a.addEventListener('click', () => setOpen(false)));
+
+      // "Run Browser Bot Test" scrolls to the scanner and starts it automatically.
+      $$('[data-autoscan]').forEach((a) => a.addEventListener('click', () => setTimeout(startScan, 600)));
+    }
+
+    /* ---------- INIT ---------- */
+    function init() {
+      $('#year').textContent = new Date().getFullYear();
+      renderTicker();
+      renderMatrix();
+      initCalculator();
+      initNav();
+      initModals();
+      initForms();
+      $('#scanBtn').addEventListener('click', startScan);
+      refreshIcons();
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+  })();
+  </script>
+</body>
+</html>
