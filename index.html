@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clickbots.com — PPC Click Fraud Detection & Bot Blocker Reviews</title>
+  <meta name="description" content="15–30% of PPC budgets are drained by invalid traffic. Calculate your ad waste, test your browser for bot signatures, and compare click fraud protection platforms." />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0a0a;
+      --bg-card: #111111;
+      --accent: #00ff88;
+      --accent-hover: #00cc6a;
+      --danger: #ff4444;
+      --warning: #ffaa00;
+      --text: #e0e0e0;
+      --text-muted: #888888;
+      --border: #2a2a2a;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header / Threat Banner */
+    .threat-banner {
+      background: linear-gradient(135deg, #1a0000 0%, #2a0000 100%);
+      border-bottom: 2px solid var(--danger);
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .threat-banner::before {
+      content: '⚠';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .threat-level {
+      color: var(--danger);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 2rem 0;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Modules */
+    .module {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .module:last-child {
+      border-bottom: none;
+    }
+
+    .module-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .module-number {
+      background: var(--accent);
+      color: var(--bg-dark);
+      font-weight: 700;
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+
+    .module h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .module p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Ad Waste Calculator */
+    .calculator {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .result-item {
+      text-align: center;
+    }
+
+    .result-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .result-label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+
+    .traffic-breakdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .traffic-item {
+      text-align: center;
+    }
+
+    .traffic-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
+
+    .dot-clean { background: var(--accent); }
+    .dot-invalid { background: var(--danger); }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--bg-dark);
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: background 0.2s;
+    }
+
+    .cta-button:hover {
+      background: var(--accent-hover);
+    }
+
+    /* Bot Inspector */
+    .inspector-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .inspector-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .inspector-item h4 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .inspector-item ul {
+      list-style: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .inspector-item li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .inspector-item li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .scan-button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background: var(--bg-card);
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 2rem;
+      transition: all 0.2s;
+    }
+
+    .scan-button:hover {
+      background: var(--accent);
+      color: var(--bg-dark);
+    }
+
+    .scan-results {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    .scan-results.show {
+      display: block;
+    }
+
+    .scan-result-line {
+      margin-bottom: 0.5rem;
+    }
+
+    .scan-pass { color: var(--accent); }
+    .scan-fail { color: var(--danger); }
+
+    /* Software Matrix */
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .matrix-table th {
+      background: var(--bg-dark);
+      color: var(--text);
+      padding: 1rem;
+      text-align: left;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .matrix-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .matrix-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .matrix-table tr:hover {
+      background: #1a1a1a;
+    }
+
+    .rating {
+      font-weight: 700;
+    }
+
+    .rating-high { color: var(--accent); }
+    .rating-med { color: var(--warning); }
+    .rating-low { color: var(--danger); }
+
+    .action-btn {
+      background: var(--accent);
+      color: var(--bg-dark);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 1.5rem; }
+      .module { padding: 2rem 0; }
+      .calculator { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Threat Banner -->
+  <header class="threat-banner">
+    <div class="container">
+      <div class="threat-level">THREAT LEVEL: ELEVATED — Invalid traffic detected across paid channels</div>
+      <h1>15% to 30% of your PPC budget is drained by invalid traffic.</h1>
+      <div class="subtitle">Clickbots.com helps media buyers diagnose, detect and neutralize clickbots, click farms and competitor fraud across Google Ads, Meta and TikTok — with independent data, transparent tooling and no-fluff software reviews.</div>
+    </div>
+  </header>
+
+  <!-- Stats -->
+  <section class="stats-grid">
+    <div class="container">
+      <div class="stat-card">
+        <div class="stat-value">$100B+</div>
+        <div class="stat-label">Est. Global Ad Fraud</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">22%</div>
+        <div class="stat-label">Avg. Invalidation Rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">4</div>
+        <div class="stat-label">Major Platforms Analyzed</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 01: Ad Waste Calculator -->
+  <section class="module" id="calculator">
+    <div class="container">
+      <div class="module-header">
+        <div class="module-number">Module 01</div>
+        <div>
+          <h2>Ad Waste Calculator</h2>
+          <p>How much are clickbots costing you? Industry benchmarks pre-fill fraud rate and CPC. Adjust any value to match your account data.</p>
+        </div>
+      </div>
+
+      <div class="calculator">
+        <div class="form-group">
+          <label for="monthlySpend">Monthly Ad Spend ($)</label>
+          <input type="number" id="monthlySpend" value="10000" min="0" step="100" />
+        </div>
+        <div class="form-group">
+          <label for="fraudRate">Estimated Invalid Traffic Rate (%)</label>
+          <input type="number" id="fraudRate" value="22" min="0" max="100" step="1" />
+        </div>
+        <div class="form-group">
+          <label for="cpc">Average Cost Per Click ($)</label>
+          <input type="number" id="cpc" value="2.50" min="0" step="0.01" />
+        </div>
+
+        <div class="results-grid">
+          <div class="result-item">
+            <div class="result-value" id="monthlyLost">$0</div>
+            <div class="result-label">Monthly Budget Lost</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value" id="annualLost">$0</div>
+            <div class="result-label">Annual Ad Spend Lost</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value" id="fakeClicks">0</div>
+            <div class="result-label">Fake Clicks / mo (Blockable)</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value" id="recoverableConv">0</div>
+            <div class="result-label">Recoverable Conversions / mo</div>
+          </div>
+        </div>
+
+        <div class="traffic-breakdown">
+          <div class="traffic-item">
+            <span class="traffic-dot dot-clean"></span>
+            <span id="cleanTraffic">Clean traffic 78%</span>
+          </div>
+          <div class="traffic-item">
+            <span class="traffic-dot dot-invalid"></span>
+            <span id="invalidTraffic">Invalid traffic 22%</span>
+          </div>
+        </div>
+
+        <a href="#matrix" class="cta-button">Compare Top 4 Blocker Tools →</a>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">Estimates use public industry benchmarks; actual invalid-traffic rates vary by account, geo and targeting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 02: Bot Inspector -->
+  <section class="module" id="inspector">
+    <div class="container">
+      <div class="module-header">
+        <div class="module-number">Module 02</div>
+        <div>
+          <h2>Bot Inspector</h2>
+          <p>Live Bot Environment Scanner — The same client-side signals fraud-detection vendors fingerprint on every ad click — run against your browser, right now. Nothing leaves your device.</p>
+        </div>
+      </div>
+
+      <div class="inspector-grid">
+        <div class="inspector-item">
+          <h4>Automation Flags</h4>
+          <ul>
+            <li>navigator.webdriver detection</li>
+            <li>Headless UA tokens</li>
+            <li>PhantomJS signatures</li>
+            <li>Puppeteer/Playwright markers</li>
+          </ul>
+        </div>
+        <div class="inspector-item">
+          <h4>Hardware Profiling</h4>
+          <ul>
+            <li>Hardware concurrency</li>
+            <li>Device memory</li>
+            <li>CPU core count</li>
+            <li>Screen resolution</li>
+          </ul>
+        </div>
+        <div class="inspector-item">
+          <h4>WebGL & Renderer</h4>
+          <ul>
+            <li>WebGL vendor / renderer</li>
+            <li>SwiftShader detection</li>
+            <li>Software rendering flags</li>
+            <li>Canvas fingerprinting</li>
+          </ul>
+        </div>
+        <div class="inspector-item">
+          <h4>Network Heuristics</h4>
+          <ul>
+            <li>Network latency</li>
+            <li>Datacenter proxy detection</li>
+            <li>VPN/Tor exit nodes</li>
+            <li>ISP reputation</li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="scan-button" id="scanBtn">Run Bot Environment Scan</button>
+      <div class="scan-results" id="scanResults">
+        <div class="scan-result-line"><span class="scan-pass">✓</span> <span id="resultWebdriver">Checking navigator.webdriver...</span></div>
+        <div class="scan-result-line"><span class="scan-pass">✓</span> <span id="resultHardware">Checking hardware concurrency...</span></div>
+        <div class="scan-result-line"><span class="scan-pass">✓</span> <span id="resultWebgl">Checking WebGL renderer...</span></div>
+        <div class="scan-result-line"><span class="scan-pass">✓</span> <span id="resultNetwork">Checking network heuristics...</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 03: Software Matrix -->
+  <section class="module" id="matrix">
+    <div class="container">
+      <div class="module-header">
+        <div class="module-number">Module 03</div>
+        <div>
+          <h2>The Software Matrix</h2>
+          <p>Top 4 Click Fraud Protection Platforms — Ranked by detection depth, platform coverage, and value for media buyers. Most offer a free trial — run one alongside your current campaigns and compare invalid-traffic reports.</p>
+        </div>
+      </div>
+
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Rating</th>
+            <th>Supported Platforms</th>
+            <th>Primary Strengths</th>
+            <th>Pricing</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ClickCease</strong></td>
+            <td><span class="rating rating-high">9.2/10</span></td>
+            <td>Google Ads, Meta, TikTok</td>
+            <td>Real-time IP blocking, automated exclusions</td>
+            <td>From $49/mo</td>
+            <td><a href="#" class="action-btn">Try Free</a></td>
+          </tr>
+          <tr>
+            <td><strong>TrafficGuard</strong></td>
+            <td><span class="rating rating-high">8.8/10</span></td>
+            <td>Google Ads, Meta, TikTok, LinkedIn</td>
+            <td>Pre-bid blocking, invalid traffic prevention</td>
+            <td>Custom quote</td>
+                      <td><a href="https://www.trafficguard.ai/google-search?_get=w6e6b7" class="action-btn" target="_blank" rel="nofollow sponsored noopener noreferrer">Request Demo</a></td>
+          </tr>
+          <tr>
+            <td><strong>Spider AF</strong></td>
+            <td><span class="rating rating-med">8.5/10</span></td>
+            <td>Google Ads, Meta, TikTok</td>
+            <td>Bot detection, competitor fraud analysis</td>
+            <td>From $79/mo</td>
+            <td><a href="#" class="action-btn">Try Free</a></td>
+          </tr>
+          <tr>
+            <td><strong>Protected by Anura</strong></td>
+            <td><span class="rating rating-med">8.2/10</span></td>
+            <td>Google Ads, Meta, TikTok, Programmatic</td>
+            <td>Ad fraud detection, TCPA compliance</td>
+            <td>Custom quote</td>
+            <td><a href="#" class="action-btn">Request Demo</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">Pricing is indicative and subject to change. Verify current plans on each vendor's site.</p>
+
+      <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;">
+        <p style="color: var(--text-muted); font-size: 0.85rem;"><strong>Affiliate disclosure:</strong> Clickbots.com may earn a commission when you start a trial or purchase through these links, at no extra cost to you. Rankings are editorially independent.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Domain -->
+  <section class="module" style="border-bottom: none;">
+    <div class="container">
+      <div style="text-align: center;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Premium Domain · Strategic Acquisition</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Interested in acquiring Clickbots.com for your AdTech brand or cybersecurity startup?</p>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Exact-match category domain with built-in tooling and affiliate infrastructure. Submit an inquiry — all offers reviewed confidentially.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Clickbots.com — PPC Click Fraud Detection & Bot Blocker Reviews</p>
+    </div>
+  </footer>
+
+  <script>
+    // Ad Waste Calculator Logic
+    const monthlySpendInput = document.getElementById('monthlySpend');
+    const fraudRateInput = document.getElementById('fraudRate');
+    const cpcInput = document.getElementById('cpc');
+
+    const monthlyLostEl = document.getElementById('monthlyLost');
+    const annualLostEl = document.getElementById('annualLost');
+    const fakeClicksEl = document.getElementById('fakeClicks');
+    const recoverableConvEl = document.getElementById('recoverableConv');
+    const cleanTrafficEl = document.getElementById('cleanTraffic');
+    const invalidTrafficEl = document.getElementById('invalidTraffic');
+
+    function formatCurrency(value) {
+      return '$' + value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    }
+
+    function formatNumber(value) {
+      return value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    }
+
+    function calculate() {
+      const monthlySpend = parseFloat(monthlySpendInput.value) || 0;
+      const fraudRate = parseFloat(fraudRateInput.value) || 0;
+      const cpc = parseFloat(cpcInput.value) || 0;
+
+      const monthlyLost = monthlySpend * (fraudRate / 100);
+      const annualLost = monthlyLost * 12;
+      const fakeClicks = monthlyLost / cpc;
+      const recoverableConv = fakeClicks * 0.02; // Assume 2% conversion rate on fake clicks
+      const cleanPct = 100 - fraudRate;
+
+      monthlyLostEl.textContent = formatCurrency(monthlyLost);
+      annualLostEl.textContent = formatCurrency(annualLost);
+      fakeClicksEl.textContent = formatNumber(Math.round(fakeClicks));
+      recoverableConvEl.textContent = formatNumber(Math.round(recoverableConv));
+      cleanTrafficEl.textContent = `Clean traffic ${cleanPct.toFixed(0)}%`;
+      invalidTrafficEl.textContent = `Invalid traffic ${fraudRate.toFixed(0)}%`;
+    }
+
+    [monthlySpendInput, fraudRateInput, cpcInput].forEach(input => {
+      input.addEventListener('input', calculate);
+    });
+
+    // Initialize calculation on load
+    calculate();
+
+    // Bot Inspector Scan Logic
+    const scanBtn = document.getElementById('scanBtn');
+    const scanResults = document.getElementById('scanResults');
+
+    scanBtn.addEventListener('click', () => {
+      scanResults.classList.add('show');
+      scanBtn.textContent = 'Scanning...';
+      scanBtn.disabled = true;
+
+      // Simulate async scan
+      setTimeout(() => {
+        const results = [
+          { id: 'resultWebdriver', text: `navigator.webdriver: ${navigator.webdriver ? 'DETECTED (bot-like)' : 'Not detected (human-like)'}`, pass: !navigator.webdriver },
+          { id: 'resultHardware', text: `Hardware concurrency: ${navigator.hardwareConcurrency || 'Unknown'} cores`, pass: true },
+          { id: 'resultWebgl', text: `WebGL renderer: ${getWebGLRenderer()}`, pass: true },
+          { id: 'resultNetwork', text: `Connection type: ${getConnectionType()}`, pass: true },
+        ];
+
+        results.forEach((result, index) => {
+          setTimeout(() => {
+            const el = document.getElementById(result.id);
+            el.textContent = result.text;
+            el.className = result.pass ? 'scan-pass' : 'scan-fail';
+          }, index * 400);
+        });
+
+        setTimeout(() => {
+          scanBtn.textContent = 'Scan Complete';
+          scanBtn.style.background = '#00cc6a';
+        }, 1600);
+      }, 500);
+    });
+
+    function getWebGLRenderer() {
+      try {
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return 'WebGL not supported';
+        const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+        if (debugInfo) {
+          return gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+        }
+        return 'Renderer info not available';
+      } catch (e) {
+        return 'Error detecting WebGL';
+      }
+    }
+
+    function getConnectionType() {
+      try {
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        if (connection) {
+          return `${connection.effectiveType} (${connection.downlink} Mbps)`;
+        }
+        return 'Connection info not available';
+      } catch (e) {
+        return 'Error detecting connection';
+      }
+    }
+  </script>
+
+</body>
+</html>
