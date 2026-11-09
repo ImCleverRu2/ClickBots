@@ -1,0 +1,13 @@
+import urllib.request
+content = urllib.request.urlopen('http://localhost:8080/checklist.html').read().decode('utf-8')
+print('Title:', '2026 PPC Bot Audit Checklist' in content)
+print('Phase 1 (7 checkpoints):', 'Google Ads' in content and 'Performance Max' in content)
+print('Phase 2 (7 checkpoints):', 'Meta Ads' in content and 'TikTok' in content)
+print('Phase 3 (7 checkpoints):', 'GA4' in content and 'BigQuery' in content)
+print('Phase 4 (6 checkpoints):', 'Clawback' in content and 'Refund' in content)
+print('Total checkpoints (27):', content.count('checkpoint') >= 27)
+print('Print stylesheet:', '@media print' in content)
+print('localStorage persistence:', 'localStorage' in content)
+print('Print button:', 'Print / Save as PDF' in content)
+print('Disclaimer:', 'Disclaimer' in content)
+print('Clickbots branding:', 'Clickbots.com' in content)

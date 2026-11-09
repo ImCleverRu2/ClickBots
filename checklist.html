@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 PPC Bot Audit Checklist — Clickbots.com</title>
+  <meta name="description" content="27-point field audit checklist for detecting and blocking invalid traffic across Google Ads, Meta, TikTok, and GA4. Printable PDF-ready format." />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --accent: #00ff88;
+      --accent-dim: rgba(0, 255, 136, 0.15);
+      --text: #e0e0e0;
+      --text-muted: #888888;
+      --border: #2a2a2a;
+      --danger: #ff4444;
+      --warning: #ffaa00;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --bg-card: #f8f9fa;
+        --text: #1a1a1a;
+        --text-muted: #555555;
+        --border: #e0e0e0;
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 2rem 0 3rem;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .logo svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--accent);
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text span {
+      color: var(--accent);
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Phase Sections */
+    .phase {
+      margin-bottom: 3rem;
+    }
+
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .phase-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .phase-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .phase-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Checkpoints */
+    .checkpoint {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .checkpoint:hover {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .checkpoint input[type="checkbox"] {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      appearance: none;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .checkpoint input[type="checkbox"]:hover {
+      border-color: var(--accent);
+    }
+
+    .checkpoint input[type="checkbox"]:checked {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .checkpoint input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 3px;
+      width: 5px;
+      height: 10px;
+      border: solid var(--bg);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    .checkpoint-content {
+      flex: 1;
+    }
+
+    .checkpoint-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .checkpoint-desc {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .checkpoint-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tag.platform { border-color: var(--accent); color: var(--accent); }
+    .tag.priority-high { border-color: var(--danger); color: var(--danger); }
+    .tag.priority-med { border-color: var(--warning); color: var(--warning); }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+        color: black;
+        padding: 0;
+        font-size: 11pt;
+      }
+
+      .container {
+        max-width: 100%;
+      }
+
+      .header {
+        border-bottom: 2px solid #333;
+        padding: 1.5rem 0 2rem;
+        page-break-after: avoid;
+      }
+
+      .logo svg {
+        stroke: #00aa66;
+      }
+
+      .logo-text span {
+        color: #00aa66;
+      }
+
+      h1 {
+        color: #111;
+      }
+
+      .subtitle {
+        color: #555;
+      }
+
+      .meta {
+        color: #666;
+      }
+
+      .phase-header {
+        border-bottom: 2px solid #333;
+        page-break-after: avoid;
+      }
+
+      .phase-number {
+        background: #e8f5ee;
+        border-color: #00aa66;
+        color: #00aa66;
+      }
+
+      .checkpoint {
+        border: 1px solid #ddd;
+        background: #fafafa;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .checkpoint:hover {
+        border-color: #ddd;
+        background: #fafafa;
+      }
+
+      .checkpoint input[type="checkbox"] {
+        border: 2px solid #999;
+      }
+
+      .checkpoint input[type="checkbox"]:checked {
+        background: #00aa66;
+        border-color: #00aa66;
+      }
+
+      .checkpoint-title {
+        color: #111;
+      }
+
+      .checkpoint-desc {
+        color: #555;
+      }
+
+      .tag {
+        border: 1px solid #ccc;
+        color: #555;
+        background: #f5f5f5;
+      }
+
+      .tag.platform { border-color: #00aa66; color: #00aa66; }
+      .tag.priority-high { border-color: #cc0000; color: #cc0000; }
+      .tag.priority-med { border-color: #cc8800; color: #cc8800; }
+
+      .footer {
+        display: none;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      @page {
+        margin: 2cm;
+        size: auto;
+      }
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .disclaimer {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .disclaimer strong {
+      color: var(--text);
+    }
+
+    /* Print button */
+    .print-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      padding: 1rem 1.5rem;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+      z-index: 100;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .print-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(0, 255, 136, 0.4);
+    }
+
+    @media print {
+      .print-btn {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.75rem; }
+      .phase-title { font-size: 1.25rem; }
+      .checkpoint { padding: 1rem; }
+      .print-btn { bottom: 1rem; right: 1rem; left: 1rem; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5"></path>
+          <path d="M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="logo-text">Click<span>bots</span>.com</span>
+      </div>
+      <h1>2026 PPC Bot Audit Checklist</h1>
+      <p class="subtitle">27 field audit checkpoints across 4 core phases for detecting and neutralizing invalid traffic across Google Ads, Meta, TikTok, and analytics.</p>
+      <div class="meta">
+        <div class="meta-item">📅 Version 2026.1</div>
+        <div class="meta-item">📊 27 Checkpoints</div>
+        <div class="meta-item">⏱️ ~45 min audit</div>
+      </div>
+    </header>
+
+    <!-- Phase 1: Google Ads & Performance Max Hygiene -->
+    <section class="phase" id="phase1">
+      <div class="phase-header">
+        <div class="phase-number">01</div>
+        <div>
+          <h2 class="phase-title">Google Ads & Performance Max Hygiene</h2>
+          <p class="phase-subtitle">7 checkpoints — Search Partner exclusions, Display Network placements, geo-location targeting vs intent settings, click threshold scripts</p>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp1-1" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Exclude Search Partners at Campaign Level</div>
+          <div class="checkpoint-desc">Disable Search Partners for all campaigns unless explicitly tested. Partners often deliver 3–5× higher invalid click rates with zero conversion value.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Google Ads</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp1-2" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Audit Display Network Placements Weekly</div>
+          <div class="checkpoint-desc">Review Placement Reports for parked domains, made-for-advertising (MFA) sites, and apps with >90% bounce rate. Add negative placements in bulk via Editor.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Google Ads</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp1-3" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Verify Geo-Targeting: "Presence" vs "Interest"</div>
+          <div class="checkpoint-desc">Ensure campaigns use "Presence: People in or regularly in your targeted locations" — NOT "Presence or interest." Interest targeting opens floodgates to VPN/datacenter traffic.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Google Ads</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp1-4" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Implement Click Threshold Scripts (GAS)</div>
+          <div class="checkpoint-desc">Deploy Google Ads Scripts that auto-exclude IPs exceeding configurable click thresholds (e.g., >5 clicks/hr, >15 clicks/day) with 24-hr lookback windows.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Google Ads</span>
+            <span class="tag priority-med">Medium Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp1-5" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Audit Performance Max Asset Group Signals</div>
+          <div class="checkpoint-desc">Review audience signals for each asset group. Remove overly broad signals (e.g., "All users") that invite bot traffic. Replace with high-intent custom segments.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Performance Max</span>
+            <span class="tag priority-med">Medium Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp1-6" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Enable Invalid Click Protection in Click Quality Settings</div>
+          <div class="checkpoint-desc">Confirm "Automatic filtering" is ON in Settings → Account Settings → Click Quality. Review the Invalid Clicks report weekly for manual exclusions.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Google Ads</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp1-7" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Set Up IP Exclusion Lists (Shared Library)</div>
+          <div class="checkpoint-desc">Create shared IP exclusion lists for known VPN ranges, datacenter ASNs, and internal corporate IPs. Apply at account level via Shared Library → Audience Manager.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Google Ads</span>
+            <span class="tag priority-med">Medium Priority</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase 2: Meta Ads & TikTok Fraud Controls -->
+    <section class="phase" id="phase2">
+      <div class="phase-header">
+        <div class="phase-number">02</div>
+        <div>
+          <h2 class="phase-title">Meta Ads & TikTok Fraud Controls</h2>
+          <p class="phase-subtitle">7 checkpoints — Audience Network exclusions, lead ad honeypot questions, CAPI deduplication, short-session bounce triggers</p>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp2-1" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Disable Audience Network for Conversion Campaigns</div>
+          <div class="checkpoint-desc">Turn off Audience Network placement for all conversion-optimized campaigns. AN delivers 40–60% bot traffic on lead gen and app install objectives.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Meta Ads</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp2-2" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Add Honeypot Fields to Lead Forms</div>
+          <div class="checkpoint-desc">Include a hidden CSS-only field (display:none) in Instant Forms. Submissions with this field filled = bot. Filter via CAPI or CRM webhook.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Meta Ads</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp2-3" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Enable CAPI Event Deduplication (event_id)</div>
+          <div class="checkpoint-desc">Pass unique event_id from browser pixel to server-side CAPI. Meta deduplicates within 48 hrs — prevents double-counting bot conversions that fire both client & server.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Meta Ads</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp2-4" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Implement Short-Session Bounce Triggers</div>
+          <div class="checkpoint-desc">Fire a custom "Low Quality Visit" event when session duration < 3s AND no scroll/interaction. Use as negative audience in retargeting and conversion optimization.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Meta Ads</span>
+            <span class="tag priority-med">Medium Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp2-5" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Disable TikTok Pangle Network for Non-App Campaigns</div>
+          <div class="checkpoint-desc">Pangle (TikTok's audience network) drives high-volume, low-quality traffic. Disable unless running app install campaigns with strict postback validation.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">TikTok</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp2-6" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Validate TikTok Click ID (ttclid) Deduplication</div>
+          <div class="checkpoint-desc">Ensure ttclid is captured on landing page and passed to server. Deduplicate server-side within 24 hrs — TikTok's attribution window allows replay attacks.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">TikTok</span>
+            <span class="tag priority-med">Medium Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp2-7" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Audit Creative-Level Click-Through Rates for Anomalies</div>
+          <div class="checkpoint-desc">Flag creatives with CTR > 3× account average AND conversion rate < 0.5%. Typical bot signature: high clicks, zero downstream events.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Meta Ads / TikTok</span>
+            <span class="tag priority-med">Medium Priority</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase 3: GA4 & Telemetry Bot Segmentation -->
+    <section class="phase" id="phase3">
+      <div class="phase-header">
+        <div class="phase-number">03</div>
+        <div>
+          <h2 class="phase-title">GA4 & Telemetry Bot Segmentation</h2>
+          <p class="phase-subtitle">7 checkpoints — Unassigned traffic spikes, 0-second engagement filters, direct/none anomaly detection, known datacenter ASN flags</p>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp3-1" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Create "Unassigned Traffic" Alert (GA4)</div>
+          <div class="checkpoint-desc">Build Exploration: Session source/medium = "(not set)" OR "unassigned". Alert if > 5% of sessions or > 20% revenue unattributed. Indicates bot traffic stripping UTM params.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">GA4</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp3-2" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Filter 0-Second Engagement Sessions</div>
+          <div class="checkpoint-desc">Create segment: engagement_time_msec = 0 AND event_count = 1 (page_view only). Exclude from all conversion audiences and lookalike seeds.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">GA4</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp3-3" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Detect Direct/None Anomaly Spikes</div>
+          <div class="checkpoint-desc">Monitor direct/none traffic for sudden > 50% WoW increases with > 90% bounce. Correlate with paid campaign pauses — bots often hit direct when paid stops.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">GA4</span>
+            <span class="tag priority-med">Medium Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp3-4" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Flag Known Datacenter ASNs (BigQuery Export)</div>
+          <div class="checkpoint-desc">Join GA4 BigQuery export with IPinfo/MaxMind ASN database. Flag sessions from ASNs: Amazon (16509), Google (15169), Microsoft (8075), DigitalOcean (14061), OVH (16276), Hetzner (24940).</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">GA4 / BigQuery</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp3-5" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Implement Bot Probability Scoring (Custom Dimension)</div>
+          <div class="checkpoint-desc">Score each session 0–100 based on: 0s engagement (+30), datacenter IP (+25), no scroll (+15), single page (+10), known VPN (+20). Push to GA4 custom dimension for segmentation.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">GA4</span>
+            <span class="tag priority-med">Medium Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp3-6" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Validate Enhanced Measurement Events</div>
+          <div class="checkpoint-desc">Confirm scroll, video_play, file_download, form_start events fire correctly. Bots rarely trigger scroll > 90% or video_play — use as negative signals.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">GA4</span>
+            <span class="tag priority-med">Medium Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp3-7" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Set Up Real-Time Bot Dashboard (Looker Studio)</div>
+          <div class="checkpoint-desc">Build dashboard: Sessions by Bot Probability Score, Invalid Click Rate by Campaign, Datacenter ASN Top 10, Revenue at Risk. Schedule daily email to media buying team.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">GA4 / Looker Studio</span>
+            <span class="tag priority-med">Medium Priority</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase 4: Clawback & Refund Playbook -->
+    <section class="phase" id="phase4">
+      <div class="phase-header">
+        <div class="phase-number">04</div>
+        <div>
+          <h2 class="phase-title">Clawback & Refund Playbook</h2>
+          <p class="phase-subtitle">6 checkpoints — Google Ads invalid clicks report extraction, Click Quality support ticket template, credit appeal checklist</p>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp4-1" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Automate Invalid Clicks Report Extraction (GAS/BigQuery)</div>
+          <div class="checkpoint-desc">Schedule daily export of Invalid Clicks report (Campaign → Click Quality → Invalid Clicks) to BigQuery/Sheets. Track: Campaign, Date, Invalid Clicks, Invalid Click Rate, Estimated Refund.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Google Ads</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp4-2" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Document Click Quality Support Ticket Template</div>
+          <div class="checkpoint-desc">Standardize ticket: Account CID, Date Range, Campaigns Affected, Invalid Click Rate %, Estimated Wasted Spend, Screenshots of Click Quality Report, Requested Credit Amount.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Google Ads</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp4-3" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">File Monthly Credit Appeals (Before 15th)</div>
+          <div class="checkpoint-desc">Google processes credits monthly. Submit by 15th for prior month. Include: CID, date range, campaigns, invalid click %, calculated refund. Reference prior approved tickets.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Google Ads</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp4-4" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Track Meta Ads Quality Refund Requests</div>
+          <div class="checkpoint-desc">Meta doesn't auto-refund. File via Business Support: "Invalid Traffic / Click Fraud" category. Provide: Campaign IDs, date range, evidence (honeypot fills, datacenter IPs), requested amount.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">Meta Ads</span>
+            <span class="tag priority-med">Medium Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp4-5" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Document TikTok Traffic Quality Disputes</div>
+          <div class="checkpoint-desc">TikTok requires: Campaign ID, ttclid samples, IP/ASN evidence, timestamp logs. File via TikTok Ads Manager → Support → Traffic Quality. Response SLA: 5–10 business days.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">TikTok</span>
+            <span class="tag priority-med">Medium Priority</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkpoint">
+        <input type="checkbox" id="cp4-6" />
+        <div class="checkpoint-content">
+          <div class="checkpoint-title">Maintain Clawback Ledger (Quarterly Reconciliation)</div>
+          <div class="checkpoint-desc">Spreadsheet: Platform, Month, Claimed $, Approved $, Denied $, Pending $, Ticket IDs. Target: recover > 80% of documented invalid spend. Escalate denials with fresh evidence.</div>
+          <div class="checkpoint-tags">
+            <span class="tag platform">All Platforms</span>
+            <span class="tag priority-high">High Priority</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 Clickbots.com — PPC Click Fraud Detection & Bot Blocker Reviews</p>
+      <p><a href="https://clickbots.com" target="_blank" rel="noopener noreferrer">clickbots.com</a> | <a href="mailto:conrad@clickbots.com">conrad@clickbots.com</a></p>
+      <div class="disclaimer">
+        <strong>Disclaimer:</strong> This checklist is for educational and operational purposes. Results vary by account, geography, and targeting. Clickbots.com is not liable for refund outcomes or platform policy changes. Always verify current platform terms before filing claims.
+      </div>
+    </footer>
+  </div>
+
+  <button class="print-btn no-print" onclick="window.print()" aria-label="Print or Save as PDF">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5"></path><path d="M18 18h2a2 2 0 0 0 2-2v-5"></path><line x1="6" y1="14" x2="18" y2="14"></line></svg>
+    Print / Save as PDF
+  </button>
+
+  <script>
+    // Persist checkbox state in localStorage
+    document.querySelectorAll('.checkpoint input[type="checkbox"]').forEach(cb => {
+      const key = 'checklist_' + cb.id;
+      if (localStorage.getItem(key) === 'true') cb.checked = true;
+      cb.addEventListener('change', () => localStorage.setItem(key, cb.checked));
+    });
+
+    // Keyboard shortcut: P to print
+    document.addEventListener('keydown', (e) => {
+      if ((e.key === 'p' || e.key === 'P') && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        window.print();
+      }
+    });
+  </script>
+</body>
+</html>

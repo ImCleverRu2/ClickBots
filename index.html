@@ -388,7 +388,254 @@
       display: inline-block;
     }
 
-    /* Footer */
+        /* Lead Capture Forms */
+        .lead-form {
+          background: var(--bg-card);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          padding: 2rem;
+          max-width: 480px;
+          margin: 0 auto;
+        }
+
+        .lead-form h3 {
+          font-size: 1.25rem;
+          margin-bottom: 0.5rem;
+          text-align: center;
+        }
+
+        .lead-form p {
+          color: var(--text-muted);
+          text-align: center;
+          margin-bottom: 1.5rem;
+          font-size: 0.9rem;
+        }
+
+        .lead-form .form-group {
+          margin-bottom: 1rem;
+        }
+
+        .lead-form label {
+          display: block;
+          margin-bottom: 0.5rem;
+          color: var(--text-muted);
+          font-size: 0.85rem;
+        }
+
+        .lead-form input[type="email"],
+        .lead-form input[type="text"],
+        .lead-form select,
+        .lead-form textarea {
+          width: 100%;
+          padding: 0.75rem;
+          background: var(--bg-dark);
+          border: 1px solid var(--border);
+          border-radius: 6px;
+          color: var(--text);
+          font-size: 1rem;
+          font-family: inherit;
+        }
+
+        .lead-form input:focus,
+        .lead-form select:focus,
+        .lead-form textarea:focus {
+          outline: none;
+          border-color: var(--accent);
+        }
+
+        .lead-form textarea {
+          min-height: 100px;
+          resize: vertical;
+        }
+
+        .lead-form .submit-btn {
+          width: 100%;
+          padding: 1rem;
+          background: var(--accent);
+          color: var(--bg-dark);
+          border: none;
+          border-radius: 6px;
+          font-weight: 600;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: background 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+        }
+
+        .lead-form .submit-btn:hover:not(:disabled) {
+          background: var(--accent-hover);
+        }
+
+        .lead-form .submit-btn:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+
+        .lead-form .submit-btn .spinner {
+          display: none;
+          width: 18px;
+          height: 18px;
+          border: 2px solid transparent;
+          border-top-color: var(--bg-dark);
+          border-radius: 50%;
+          animation: spin 0.8s linear infinite;
+        }
+
+        .lead-form .submit-btn.loading .spinner {
+          display: block;
+        }
+
+        .lead-form .submit-btn.loading .btn-text {
+          display: none;
+        }
+
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+
+        .lead-form .form-message {
+          margin-top: 1rem;
+          padding: 1rem;
+          border-radius: 6px;
+          display: none;
+        }
+
+        .lead-form .form-message.success {
+          display: block;
+          background: rgba(0, 255, 136, 0.1);
+          border: 1px solid var(--accent);
+          color: var(--accent);
+        }
+
+        .lead-form .form-message.error {
+          display: block;
+          background: rgba(255, 68, 68, 0.1);
+          border: 1px solid var(--danger);
+          color: var(--danger);
+        }
+
+        .lead-form .checklist-download {
+          display: none;
+          margin-top: 1rem;
+          text-align: center;
+        }
+
+        .lead-form .checklist-download a {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 1rem 2rem;
+          background: var(--accent);
+          color: var(--bg-dark);
+          border-radius: 6px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: background 0.2s;
+        }
+
+        .lead-form .checklist-download a:hover {
+          background: var(--accent-hover);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.85);
+          backdrop-filter: blur(4px);
+          z-index: 1000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1.5rem;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .modal-overlay.active {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .modal {
+          background: var(--bg-card);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          padding: 2rem;
+          max-width: 520px;
+          width: 100%;
+          max-height: 90vh;
+          overflow-y: auto;
+          transform: scale(0.95);
+          transition: transform 0.3s;
+        }
+
+        .modal-overlay.active .modal {
+          transform: scale(1);
+        }
+
+        .modal-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-bottom: 1.5rem;
+        }
+
+        .modal-header h3 {
+          font-size: 1.25rem;
+        }
+
+        .modal-close {
+          background: none;
+          border: none;
+          color: var(--text-muted);
+          font-size: 1.5rem;
+          cursor: pointer;
+          padding: 0;
+          line-height: 1;
+          transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+          color: var(--text);
+        }
+
+        .modal .form-message {
+          margin-top: 1rem;
+          padding: 1rem;
+          border-radius: 6px;
+          display: none;
+        }
+
+        .modal .form-message.success {
+          display: block;
+          background: rgba(0, 255, 136, 0.1);
+          border: 1px solid var(--accent);
+          color: var(--accent);
+        }
+
+        .modal .form-message.error {
+          display: block;
+          background: rgba(255, 68, 68, 0.1);
+          border: 1px solid var(--danger);
+          color: var(--danger);
+        }
+
+        /* Highlight effect for matrix row */
+        @keyframes highlight-row {
+          0% { background: rgba(0, 255, 136, 0.3); }
+          100% { background: transparent; }
+        }
+
+        .matrix-table tr.highlight {
+          animation: highlight-row 2s ease-out;
+        }
+
+        /* Footer */
     footer {
       padding: 3rem 0;
       border-top: 1px solid var(--border);
@@ -416,7 +663,80 @@
 </head>
 <body>
 
-  <!-- Threat Banner -->
+    <!-- Lead Capture Modal (Exit Intent / Checklist Download) -->
+    <div class="modal-overlay" id="checklistModal" role="dialog" aria-labelledby="checklistModalTitle" aria-modal="true">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="checklistModalTitle">Download the 2026 PPC Bot Audit Checklist</h3>
+          <button class="modal-close" id="closeChecklistModal" aria-label="Close modal">&times;</button>
+        </div>
+        <form class="lead-form" id="checklistForm">
+          <p>Enter your work email to get instant access to the 27-point audit checklist used by top media buyers.</p>
+          <div class="form-group">
+            <label for="checklistEmail">Work Email</label>
+            <input type="email" id="checklistEmail" name="email" placeholder="you@company.com" required autocomplete="email" />
+          </div>
+          <button type="submit" class="submit-btn">
+            <span class="spinner"></span>
+            <span class="btn-text">Generating checklist...</span>
+          </button>
+          <div class="form-message" id="checklistMessage"></div>
+          <div class="checklist-download" id="checklistDownload">
+            <a href="checklist.html" target="_blank" rel="noopener noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Open Checklist (PDF/Print)
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Domain Inquiry Modal -->
+    <div class="modal-overlay" id="domainModal" role="dialog" aria-labelledby="domainModalTitle" aria-modal="true">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="domainModalTitle">Strategic Acquisition Inquiry</h3>
+          <button class="modal-close" id="closeDomainModal" aria-label="Close modal">&times;</button>
+        </div>
+        <form class="lead-form" id="domainForm">
+          <p>Serious inquiries only. All proposals reviewed under NDA by Conrad and the Clickbots team.</p>
+          <div class="form-group">
+            <label for="domainName">Full Name</label>
+            <input type="text" id="domainName" name="name" placeholder="Your name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="domainCompany">Company / Organization</label>
+            <input type="text" id="domainCompany" name="company" placeholder="Company name" required autocomplete="organization" />
+          </div>
+          <div class="form-group">
+            <label for="domainEmail">Email</label>
+            <input type="email" id="domainEmail" name="email" placeholder="you@company.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="domainOffer">Offer Range (USD)</label>
+            <select id="domainOffer" name="offer" required>
+              <option value="">Select range</option>
+              <option value="10k-50k">$10,000 – $50,000</option>
+              <option value="50k-100k">$50,000 – $100,000</option>
+              <option value="100k-250k">$100,000 – $250,000</option>
+              <option value="250k-500k">$250,000 – $500,000</option>
+              <option value="500k+">$500,000+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="domainMessage">Message / Proposal Details</label>
+            <textarea id="domainMessage" name="message" placeholder="Briefly describe your interest, timeline, and any specific terms..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <span class="spinner"></span>
+            <span class="btn-text">Submit Inquiry</span>
+          </button>
+          <div class="form-message" id="domainMessage"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Threat Banner -->
   <header class="threat-banner">
     <div class="container">
       <div class="threat-level">THREAT LEVEL: ELEVATED — Invalid traffic detected across paid channels</div>
@@ -498,11 +818,32 @@
           </div>
         </div>
 
-        <a href="#matrix" class="cta-button">Compare Top 4 Blocker Tools →</a>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">Estimates use public industry benchmarks; actual invalid-traffic rates vary by account, geo and targeting.</p>
-      </div>
-    </div>
-  </section>
+                <!-- Inline Lead Capture Form -->
+                <form class="lead-form" id="inlineChecklistForm" style="margin-top: 2rem;">
+                  <h3>Download the 2026 PPC Bot Audit Checklist</h3>
+                  <p>Get the 27-point field audit checklist used by top media buyers to detect and block invalid traffic.</p>
+                  <div class="form-group">
+                    <label for="inlineChecklistEmail">Work Email</label>
+                    <input type="email" id="inlineChecklistEmail" name="email" placeholder="you@company.com" required autocomplete="email" />
+                  </div>
+                  <button type="submit" class="submit-btn">
+                    <span class="spinner"></span>
+                    <span class="btn-text">Generating checklist...</span>
+                  </button>
+                  <div class="form-message" id="inlineChecklistMessage"></div>
+                  <div class="checklist-download" id="inlineChecklistDownload">
+                    <a href="checklist.html" target="_blank" rel="noopener noreferrer">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                      Open Checklist (PDF/Print)
+                    </a>
+                  </div>
+                </form>
+
+                <a href="#matrix" class="cta-button" id="scrollToMatrix">Compare Top 4 Blocker Tools →</a>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">Estimates use public industry benchmarks; actual invalid-traffic rates vary by account, geo and targeting.</p>
+              </div>
+            </div>
+          </section>
 
   <!-- Module 02: Bot Inspector -->
   <section class="module" id="inspector">
@@ -636,10 +977,11 @@
       <div style="text-align: center;">
         <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Premium Domain · Strategic Acquisition</h2>
         <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Interested in acquiring Clickbots.com for your AdTech brand or cybersecurity startup?</p>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">Exact-match category domain with built-in tooling and affiliate infrastructure. Submit an inquiry — all offers reviewed confidentially.</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Exact-match category domain with built-in tooling and affiliate infrastructure.</p>
+          <button type="button" class="cta-button" id="openDomainModal" style="margin-top: 1rem;">Submit Inquiry</button>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   <footer>
     <div class="container">
@@ -648,112 +990,376 @@
   </footer>
 
   <script>
-    // Ad Waste Calculator Logic
-    const monthlySpendInput = document.getElementById('monthlySpend');
-    const fraudRateInput = document.getElementById('fraudRate');
-    const cpcInput = document.getElementById('cpc');
+      // ============================================
+      // CONFIGURATION
+      // ============================================
+      const CONFIG = {
+        leadCaptureEndpoint: '/api/lead-capture', // Replace with Formspree/Loops/Resend endpoint
+        domainInquiryEndpoint: '/api/domain-inquiry', // Replace with Formspree/Loops/Resend endpoint
+      };
 
-    const monthlyLostEl = document.getElementById('monthlyLost');
-    const annualLostEl = document.getElementById('annualLost');
-    const fakeClicksEl = document.getElementById('fakeClicks');
-    const recoverableConvEl = document.getElementById('recoverableConv');
-    const cleanTrafficEl = document.getElementById('cleanTraffic');
-    const invalidTrafficEl = document.getElementById('invalidTraffic');
+      // ============================================
+      // UTILITY FUNCTIONS
+      // ============================================
+      function formatCurrency(value) {
+        return '$' + value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+      }
 
-    function formatCurrency(value) {
-      return '$' + value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-    }
+      function formatNumber(value) {
+        return value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+      }
 
-    function formatNumber(value) {
-      return value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-    }
+      function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
 
-    function calculate() {
-      const monthlySpend = parseFloat(monthlySpendInput.value) || 0;
-      const fraudRate = parseFloat(fraudRateInput.value) || 0;
-      const cpc = parseFloat(cpcInput.value) || 0;
+      function showFormMessage(element, message, isSuccess) {
+        element.textContent = message;
+        element.className = 'form-message ' + (isSuccess ? 'success' : 'error');
+      }
 
-      const monthlyLost = monthlySpend * (fraudRate / 100);
-      const annualLost = monthlyLost * 12;
-      const fakeClicks = monthlyLost / cpc;
-      const recoverableConv = fakeClicks * 0.02; // Assume 2% conversion rate on fake clicks
-      const cleanPct = 100 - fraudRate;
+      function setButtonLoading(button, isLoading) {
+        if (isLoading) {
+          button.classList.add('loading');
+          button.disabled = true;
+        } else {
+          button.classList.remove('loading');
+          button.disabled = false;
+        }
+      }
 
-      monthlyLostEl.textContent = formatCurrency(monthlyLost);
-      annualLostEl.textContent = formatCurrency(annualLost);
-      fakeClicksEl.textContent = formatNumber(Math.round(fakeClicks));
-      recoverableConvEl.textContent = formatNumber(Math.round(recoverableConv));
-      cleanTrafficEl.textContent = `Clean traffic ${cleanPct.toFixed(0)}%`;
-      invalidTrafficEl.textContent = `Invalid traffic ${fraudRate.toFixed(0)}%`;
-    }
-
-    [monthlySpendInput, fraudRateInput, cpcInput].forEach(input => {
-      input.addEventListener('input', calculate);
-    });
-
-    // Initialize calculation on load
-    calculate();
-
-    // Bot Inspector Scan Logic
-    const scanBtn = document.getElementById('scanBtn');
-    const scanResults = document.getElementById('scanResults');
-
-    scanBtn.addEventListener('click', () => {
-      scanResults.classList.add('show');
-      scanBtn.textContent = 'Scanning...';
-      scanBtn.disabled = true;
-
-      // Simulate async scan
-      setTimeout(() => {
-        const results = [
-          { id: 'resultWebdriver', text: `navigator.webdriver: ${navigator.webdriver ? 'DETECTED (bot-like)' : 'Not detected (human-like)'}`, pass: !navigator.webdriver },
-          { id: 'resultHardware', text: `Hardware concurrency: ${navigator.hardwareConcurrency || 'Unknown'} cores`, pass: true },
-          { id: 'resultWebgl', text: `WebGL renderer: ${getWebGLRenderer()}`, pass: true },
-          { id: 'resultNetwork', text: `Connection type: ${getConnectionType()}`, pass: true },
-        ];
-
-        results.forEach((result, index) => {
-          setTimeout(() => {
-            const el = document.getElementById(result.id);
-            el.textContent = result.text;
-            el.className = result.pass ? 'scan-pass' : 'scan-fail';
-          }, index * 400);
+      async function submitForm(endpoint, formData) {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
         });
+        return response;
+      }
+
+      // ============================================
+      // AD WASTE CALCULATOR
+      // ============================================
+      const monthlySpendInput = document.getElementById('monthlySpend');
+      const fraudRateInput = document.getElementById('fraudRate');
+      const cpcInput = document.getElementById('cpc');
+
+      const monthlyLostEl = document.getElementById('monthlyLost');
+      const annualLostEl = document.getElementById('annualLost');
+      const fakeClicksEl = document.getElementById('fakeClicks');
+      const recoverableConvEl = document.getElementById('recoverableConv');
+      const cleanTrafficEl = document.getElementById('cleanTraffic');
+      const invalidTrafficEl = document.getElementById('invalidTraffic');
+
+      function calculate() {
+        const monthlySpend = parseFloat(monthlySpendInput.value) || 0;
+        const fraudRate = parseFloat(fraudRateInput.value) || 0;
+        const cpc = parseFloat(cpcInput.value) || 0;
+
+        const monthlyLost = monthlySpend * (fraudRate / 100);
+        const annualLost = monthlyLost * 12;
+        const fakeClicks = monthlyLost / cpc;
+        const recoverableConv = fakeClicks * 0.02;
+        const cleanPct = 100 - fraudRate;
+
+        monthlyLostEl.textContent = formatCurrency(monthlyLost);
+        annualLostEl.textContent = formatCurrency(annualLost);
+        fakeClicksEl.textContent = formatNumber(Math.round(fakeClicks));
+        recoverableConvEl.textContent = formatNumber(Math.round(recoverableConv));
+        cleanTrafficEl.textContent = `Clean traffic ${cleanPct.toFixed(0)}%`;
+        invalidTrafficEl.textContent = `Invalid traffic ${fraudRate.toFixed(0)}%`;
+      }
+
+      [monthlySpendInput, fraudRateInput, cpcInput].forEach(input => {
+        input.addEventListener('input', calculate);
+      });
+
+      calculate();
+
+      // ============================================
+      // BOT INSPECTOR
+      // ============================================
+      const scanBtn = document.getElementById('scanBtn');
+      const scanResults = document.getElementById('scanResults');
+
+      scanBtn.addEventListener('click', () => {
+        scanResults.classList.add('show');
+        scanBtn.textContent = 'Scanning...';
+        scanBtn.disabled = true;
 
         setTimeout(() => {
-          scanBtn.textContent = 'Scan Complete';
-          scanBtn.style.background = '#00cc6a';
-        }, 1600);
-      }, 500);
-    });
+          const results = [
+            { id: 'resultWebdriver', text: `navigator.webdriver: ${navigator.webdriver ? 'DETECTED (bot-like)' : 'Not detected (human-like)'}`, pass: !navigator.webdriver },
+            { id: 'resultHardware', text: `Hardware concurrency: ${navigator.hardwareConcurrency || 'Unknown'} cores`, pass: true },
+            { id: 'resultWebgl', text: `WebGL renderer: ${getWebGLRenderer()}`, pass: true },
+            { id: 'resultNetwork', text: `Connection type: ${getConnectionType()}`, pass: true },
+          ];
 
-    function getWebGLRenderer() {
-      try {
-        const canvas = document.createElement('canvas');
-        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-        if (!gl) return 'WebGL not supported';
-        const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-        if (debugInfo) {
-          return gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+          results.forEach((result, index) => {
+            setTimeout(() => {
+              const el = document.getElementById(result.id);
+              el.textContent = result.text;
+              el.className = result.pass ? 'scan-pass' : 'scan-fail';
+            }, index * 400);
+          });
+
+          setTimeout(() => {
+            scanBtn.textContent = 'Scan Complete';
+            scanBtn.style.background = '#00cc6a';
+          }, 1600);
+        }, 500);
+      });
+
+      function getWebGLRenderer() {
+        try {
+          const canvas = document.createElement('canvas');
+          const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+          if (!gl) return 'WebGL not supported';
+          const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+          if (debugInfo) {
+            return gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+          }
+          return 'Renderer info not available';
+        } catch (e) {
+          return 'Error detecting WebGL';
         }
-        return 'Renderer info not available';
-      } catch (e) {
-        return 'Error detecting WebGL';
       }
-    }
 
-    function getConnectionType() {
-      try {
-        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-        if (connection) {
-          return `${connection.effectiveType} (${connection.downlink} Mbps)`;
+      function getConnectionType() {
+        try {
+          const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+          if (connection) {
+            return `${connection.effectiveType} (${connection.downlink} Mbps)`;
+          }
+          return 'Connection info not available';
+        } catch (e) {
+          return 'Error detecting connection';
         }
-        return 'Connection info not available';
-      } catch (e) {
-        return 'Error detecting connection';
       }
-    }
-  </script>
 
-</body>
+      // ============================================
+      // MODAL HANDLING
+      // ============================================
+      function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          // Focus first input
+          setTimeout(() => {
+            const firstInput = modal.querySelector('input, select, textarea');
+            if (firstInput) firstInput.focus();
+          }, 100);
+        }
+      }
+
+      function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+          // Reset form
+          const form = modal.querySelector('form');
+          if (form) form.reset();
+          const message = modal.querySelector('.form-message');
+          if (message) {
+            message.textContent = '';
+            message.className = 'form-message';
+          }
+          const download = modal.querySelector('.checklist-download');
+          if (download) download.style.display = 'none';
+        }
+      }
+
+      // Close modal on overlay click
+      document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay) {
+            closeModal(overlay.id);
+          }
+        });
+      });
+
+      // Close buttons
+      document.getElementById('closeChecklistModal')?.addEventListener('click', () => closeModal('checklistModal'));
+      document.getElementById('closeDomainModal')?.addEventListener('click', () => closeModal('domainModal'));
+
+      // Escape key to close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          document.querySelectorAll('.modal-overlay.active').forEach(m => closeModal(m.id));
+        }
+      });
+
+      // ============================================
+      // LEAD CAPTURE FORM HANDLERS
+      // ============================================
+      async function handleChecklistSubmit(form, messageEl, downloadEl, emailInput) {
+        const email = emailInput.value.trim();
+        if (!validateEmail(email)) {
+          showFormMessage(messageEl, 'Please enter a valid work email address.', false);
+          return;
+        }
+
+        const submitBtn = form.querySelector('.submit-btn');
+        setButtonLoading(submitBtn, true);
+        showFormMessage(messageEl, '', false);
+
+        try {
+          // In production, replace with actual endpoint
+          // const response = await submitForm(CONFIG.leadCaptureEndpoint, { email, source: 'checklist' });
+          // For demo, simulate success
+          await new Promise(r => setTimeout(r, 1200));
+        
+          // Simulate successful response
+          showFormMessage(messageEl, 'Success! Your checklist is ready.', true);
+          downloadEl.style.display = 'block';
+          setButtonLoading(submitBtn, false);
+        
+          // Track conversion (placeholder for analytics)
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'lead_capture', { event_category: 'checklist', event_label: 'ppc_bot_audit_2026' });
+          }
+        } catch (error) {
+          showFormMessage(messageEl, 'Something went wrong. Please try again.', false);
+          setButtonLoading(submitBtn, false);
+        }
+      }
+
+      // Inline checklist form
+      const inlineChecklistForm = document.getElementById('inlineChecklistForm');
+      if (inlineChecklistForm) {
+        inlineChecklistForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          handleChecklistSubmit(
+            inlineChecklistForm,
+            document.getElementById('inlineChecklistMessage'),
+            document.getElementById('inlineChecklistDownload'),
+            document.getElementById('inlineChecklistEmail')
+          );
+        });
+      }
+
+      // Modal checklist form
+      const checklistForm = document.getElementById('checklistForm');
+      if (checklistForm) {
+        checklistForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          handleChecklistSubmit(
+            checklistForm,
+            document.getElementById('checklistMessage'),
+            document.getElementById('checklistDownload'),
+            document.getElementById('checklistEmail')
+          );
+        });
+      }
+
+      // ============================================
+      // DOMAIN INQUIRY FORM HANDLER
+      // ============================================
+      const domainForm = document.getElementById('domainForm');
+      if (domainForm) {
+        domainForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+        
+          const formData = {
+            name: document.getElementById('domainName').value.trim(),
+            company: document.getElementById('domainCompany').value.trim(),
+            email: document.getElementById('domainEmail').value.trim(),
+            offer: document.getElementById('domainOffer').value,
+            message: document.getElementById('domainMessage').value.trim(),
+          };
+
+          const messageEl = document.getElementById('domainMessage');
+          const submitBtn = domainForm.querySelector('.submit-btn');
+
+          // Validation
+          if (!formData.name || !formData.company || !formData.email || !formData.offer || !formData.message) {
+            showFormMessage(messageEl, 'Please fill in all required fields.', false);
+            return;
+          }
+          if (!validateEmail(formData.email)) {
+            showFormMessage(messageEl, 'Please enter a valid email address.', false);
+            return;
+          }
+
+          setButtonLoading(submitBtn, true);
+          showFormMessage(messageEl, '', false);
+
+          try {
+            // In production, replace with actual endpoint
+            // const response = await submitForm(CONFIG.domainInquiryEndpoint, formData);
+            await new Promise(r => setTimeout(r, 1200));
+          
+            showFormMessage(messageEl, 'Inquiry received. Conrad and the Clickbots team will review your proposal under NDA within 48 hours.', true);
+            setButtonLoading(submitBtn, false);
+          
+            // Track conversion
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'lead_capture', { event_category: 'domain_inquiry', event_label: 'strategic_acquisition' });
+            }
+          } catch (error) {
+            showFormMessage(messageEl, 'Something went wrong. Please try again.', false);
+            setButtonLoading(submitBtn, false);
+          }
+        });
+      }
+
+      // ============================================
+      // MODAL TRIGGERS
+      // ============================================
+      // Exit intent detection for checklist modal
+      let exitIntentShown = false;
+      document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 0 && !exitIntentShown) {
+          exitIntentShown = true;
+          openModal('checklistModal');
+        }
+      });
+
+      // Domain inquiry button
+      document.getElementById('openDomainModal')?.addEventListener('click', () => openModal('domainModal'));
+
+      // ============================================
+      // SMOOTH SCROLL TO MATRIX WITH HIGHLIGHT
+      // ============================================
+      document.getElementById('scrollToMatrix')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        const matrixSection = document.getElementById('matrix');
+        if (matrixSection) {
+          matrixSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+          // Highlight TrafficGuard row after scroll
+          setTimeout(() => {
+            const trafficGuardRow = matrixSection.querySelector('tr:has(td:first-child strong:contains("TrafficGuard"))') 
+              || Array.from(matrixSection.querySelectorAll('tr')).find(r => r.textContent.includes('TrafficGuard'));
+            if (trafficGuardRow) {
+              trafficGuardRow.classList.add('highlight');
+              setTimeout(() => trafficGuardRow.classList.remove('highlight'), 2000);
+            }
+          }, 800);
+        }
+      });
+
+      // ============================================
+      // SCROLL TO MATRIX HIGHLIGHT (for any anchor link to #matrix)
+      // ============================================
+      document.querySelectorAll('a[href="#matrix"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const matrixSection = document.getElementById('matrix');
+          if (matrixSection) {
+            matrixSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => {
+              const trafficGuardRow = Array.from(matrixSection.querySelectorAll('tr')).find(r => r.textContent.includes('TrafficGuard'));
+              if (trafficGuardRow) {
+                trafficGuardRow.classList.add('highlight');
+                setTimeout(() => trafficGuardRow.classList.remove('highlight'), 2000);
+              }
+            }, 800);
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
