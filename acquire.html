@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acquire Clickbots.com — Strategic Acquisition Inquiry</title>
+  <meta name="description" content="Acquisition inquiry page for Clickbots.com, an exact-match category domain for AdTech or cybersecurity brands. Inquiry endpoint is a TODO placeholder." />
+  <link rel="canonical" href="https://clickbots.com/acquire.html" />
+  <meta property="og:title" content="Acquire Clickbots.com — Strategic Acquisition Inquiry" />
+  <meta property="og:description" content="Acquisition inquiry page for Clickbots.com, an exact-match category domain for AdTech or cybersecurity brands." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://clickbots.com/acquire.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Acquire Clickbots.com — Strategic Acquisition Inquiry" />
+  <meta name="twitter:description" content="Acquisition inquiry page for Clickbots.com." />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <style>
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.9rem; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { outline: none; border-color: var(--accent); }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .form-message { margin-top: 1rem; padding: 1rem; border-radius: 6px; display: none; }
+    .form-message.success { display: block; background: rgba(0, 255, 136, 0.1); border: 1px solid var(--accent); color: var(--accent); }
+    .form-message.error { display: block; background: rgba(255, 68, 68, 0.1); border: 1px solid var(--danger); color: var(--danger); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="/index.html">Clickbots<span>.com</span></a>
+      <nav class="site-nav">
+        <a href="/index.html#calculator">Calculator</a>
+        <a href="/index.html#compare">Compare</a>
+        <a href="/how-we-rate.html">How we rate</a>
+        <a href="/guides/best-click-fraud-tool-small-business.html">Guides</a>
+        <a class="nav-aff-btn" href="/index.html#compare">Compare Tools</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Premium Domain · Strategic Acquisition</h1>
+        <p>Interested in acquiring Clickbots.com for your AdTech brand or cybersecurity startup?</p>
+      </div>
+    </section>
+
+    <section class="module">
+      <div class="container">
+        <div class="card" style="max-width: 640px; margin: 0 auto;">
+          <p>Exact-match category domain with built-in tooling and affiliate infrastructure.</p>
+          <p class="aff-disclosure">Inquiries are reviewed under NDA. TODO: confirm review and response process.</p>
+
+          <form id="domainForm" action="{{DOMAIN_INQUIRY_ENDPOINT}}" method="POST">
+            <div class="form-group">
+              <label for="domainName">Full Name</label>
+              <input type="text" id="domainName" name="name" placeholder="Your name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="domainCompany">Company / Organization</label>
+              <input type="text" id="domainCompany" name="company" placeholder="Company name" required autocomplete="organization" />
+            </div>
+            <div class="form-group">
+              <label for="domainEmail">Email</label>
+              <input type="email" id="domainEmail" name="email" placeholder="you@company.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="domainOffer">Offer Range (USD)</label>
+              <select id="domainOffer" name="offer" required>
+                <option value="">Select range</option>
+                <option value="10k-50k">$10,000 – $50,000</option>
+                <option value="50k-100k">$50,000 – $100,000</option>
+                <option value="100k-250k">$100,000 – $250,000</option>
+                <option value="250k-500k">$250,000 – $500,000</option>
+                <option value="500k+">$500,000+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="domainMessage">Message / Proposal Details</label>
+              <textarea id="domainMessage" name="message" placeholder="Briefly describe your interest, timeline, and any specific terms..." required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit Inquiry</button>
+            <div class="form-message" id="domainMessageStatus" role="status"></div>
+          </form>
+          <!-- TODO: replace {{DOMAIN_INQUIRY_ENDPOINT}} with a real form endpoint -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Clickbots.com — PPC Click Fraud Detection &amp; Bot Blocker Reviews</p>
+      <p style="margin-top: 0.5rem;"><a href="/how-we-rate.html">How we rate</a> · <a href="/acquire.html">Acquisition inquiries</a> · <a href="/sitemap.xml">Sitemap</a></p>
+      <p class="aff-disclosure" style="margin-top: 0.75rem;">Affiliate disclosure: Clickbots.com may earn a commission when you start a trial or purchase through these links, at no extra cost to you. Rankings are editorially independent.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('domainForm');
+      var status = document.getElementById('domainMessageStatus');
+      if (!form || !status) return;
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        status.textContent = 'TODO: connect the domain inquiry endpoint ({{DOMAIN_INQUIRY_ENDPOINT}}) before accepting submissions.';
+        status.className = 'form-message error';
+      });
+    })();
+  </script>
+</body>
+</html>

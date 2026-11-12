@@ -4,17 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clickbots.com — PPC Click Fraud Detection & Bot Blocker Reviews</title>
-  <meta name="description" content="15–30% of PPC budgets are drained by invalid traffic. Calculate your ad waste, test your browser for bot signatures, and compare click fraud protection platforms." />
+  <meta name="description" content="Invalid traffic drains roughly 22% of PPC budgets on average. Calculate your ad waste, test your browser for bot signatures, and compare click fraud protection platforms." />
   <link rel="canonical" href="https://clickbots.com/" />
   <meta property="og:title" content="Clickbots.com — PPC Click Fraud Detection & Bot Blocker Reviews" />
-  <meta property="og:description" content="15–30% of PPC budgets are drained by invalid traffic. Calculate your ad waste, test your browser for bot signatures, and compare click fraud protection platforms." />
+  <meta property="og:description" content="Invalid traffic drains roughly 22% of PPC budgets on average. Calculate your ad waste, test your browser for bot signatures, and compare click fraud protection platforms." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://clickbots.com/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Clickbots.com — PPC Click Fraud Detection & Bot Blocker Reviews" />
+  <meta name="twitter:description" content="Invalid traffic drains roughly 22% of PPC budgets on average. Calculate your ad waste and compare click fraud protection platforms." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Clickbots.com",
+    "url": "https://clickbots.com/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Clickbots.com",
+    "url": "https://clickbots.com/"
+  }
+  </script>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     :root {
@@ -43,40 +66,12 @@
       padding: 0 1.5rem;
     }
 
-    /* Header / Threat Banner */
-    .threat-banner {
-      background: linear-gradient(135deg, #1a0000 0%, #2a0000 100%);
-      border-bottom: 2px solid var(--danger);
-      padding: 1.5rem;
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #0f0f0f 0%, #141414 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 1.5rem;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .threat-banner::before {
-      content: '⚠';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 4rem;
-      opacity: 0.1;
-      pointer-events: none;
-    }
-
-    .threat-level {
-      color: var(--danger);
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 0.5rem;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
     }
 
     h1 {
@@ -121,6 +116,20 @@
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 1px;
+    }
+
+    .source-link {
+      font-size: 0.5em;
+      vertical-align: super;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 0.15rem;
+      font-weight: 400;
+    }
+
+    .source-link:hover {
+      color: var(--accent);
+      text-decoration: underline;
     }
 
     /* Modules */
@@ -663,6 +672,27 @@
       h1 { font-size: 1.5rem; }
       .module { padding: 2rem 0; }
       .calculator { padding: 1.5rem; }
+      .sticky-aff-bar { display: none !important; }
+      .mobile-compare-btn {
+        display: flex;
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 1002;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--accent);
+        color: var(--bg-dark);
+        padding: 0.9rem 1.25rem;
+        border-radius: 8px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      }
+      .mobile-compare-btn.hidden { display: none; }
+      .matrix-table { min-width: 760px; }
     }
 
     /* Affiliate CTA boxes */
@@ -695,6 +725,43 @@
     }
     .aff-cta .btn:hover {
       background: var(--accent-hover);
+    }
+    .aff-cta .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      align-items: center;
+      margin: 0.5rem 0;
+    }
+    .aff-cta .btn.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .aff-cta .btn.secondary:hover {
+      background: var(--accent);
+      color: var(--bg-dark);
+    }
+    .aff-cta .aff-disclosure {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin: 0.75rem 0 0;
+    }
+    .aff-disclosure {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: 0.75rem 0;
+    }
+    .table-scroll {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Mobile compare button */
+    .mobile-compare-btn {
+      display: none;
     }
 
     /* BEST OVERALL badge */
@@ -795,7 +862,8 @@
           <h3 id="checklistModalTitle">Download the 2026 PPC Bot Audit Checklist</h3>
           <button class="modal-close" id="closeChecklistModal" aria-label="Close modal">&times;</button>
         </div>
-        <form class="lead-form" id="checklistForm">
+        <form class="lead-form" id="checklistForm" action="{{EMAIL_PROVIDER_FORM_ACTION}}" method="POST">
+          <input type="hidden" name="source" value="checklist" />
           <p>Enter your work email to get instant access to the 27-point audit checklist used by top media buyers.</p>
           <div class="form-group">
             <label for="checklistEmail">Work Email</label>
@@ -811,63 +879,18 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
               Open Checklist (PDF/Print)
             </a>
+            <p style="margin-top: 0.75rem;"><a href="#compare" onclick="closeModal('checklistModal')" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);">Compare Tools →</a></p>
           </div>
         </form>
       </div>
     </div>
 
-    <!-- Domain Inquiry Modal -->
-    <div class="modal-overlay" id="domainModal" role="dialog" aria-labelledby="domainModalTitle" aria-modal="true">
-      <div class="modal">
-        <div class="modal-header">
-          <h3 id="domainModalTitle">Strategic Acquisition Inquiry</h3>
-          <button class="modal-close" id="closeDomainModal" aria-label="Close modal">&times;</button>
-        </div>
-        <form class="lead-form" id="domainForm">
-          <p>Serious inquiries only. All proposals reviewed under NDA by Conrad and the Clickbots team.</p>
-          <div class="form-group">
-            <label for="domainName">Full Name</label>
-            <input type="text" id="domainName" name="name" placeholder="Your name" required autocomplete="name" />
-          </div>
-          <div class="form-group">
-            <label for="domainCompany">Company / Organization</label>
-            <input type="text" id="domainCompany" name="company" placeholder="Company name" required autocomplete="organization" />
-          </div>
-          <div class="form-group">
-            <label for="domainEmail">Email</label>
-            <input type="email" id="domainEmail" name="email" placeholder="you@company.com" required autocomplete="email" />
-          </div>
-          <div class="form-group">
-            <label for="domainOffer">Offer Range (USD)</label>
-            <select id="domainOffer" name="offer" required>
-              <option value="">Select range</option>
-              <option value="10k-50k">$10,000 – $50,000</option>
-              <option value="50k-100k">$50,000 – $100,000</option>
-              <option value="100k-250k">$100,000 – $250,000</option>
-              <option value="250k-500k">$250,000 – $500,000</option>
-              <option value="500k+">$500,000+</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="domainMessage">Message / Proposal Details</label>
-            <textarea id="domainMessage" name="message" placeholder="Briefly describe your interest, timeline, and any specific terms..." required></textarea>
-          </div>
-          <button type="submit" class="submit-btn">
-            <span class="spinner"></span>
-            <span class="btn-text">Submit Inquiry</span>
-          </button>
-          <div class="form-message" id="domainMessage"></div>
-        </form>
-      </div>
-    </div>
-
-    <!-- Threat Banner -->
-  <header class="threat-banner">
+    <!-- Hero -->
+  <header class="hero">
     <div class="container">
-      <div class="threat-level">THREAT LEVEL: ELEVATED — Invalid traffic detected across paid channels</div>
-      <h1>15% to 30% of your PPC budget is drained by invalid traffic.</h1>
+      <h1>22% of your PPC budget is drained by invalid traffic.</h1>
       <div class="subtitle">Clickbots.com helps media buyers diagnose, detect and neutralize clickbots, click farms and competitor fraud across Google Ads, Meta and TikTok — with independent data, transparent tooling and no-fluff software reviews.</div>
-      <a href="#" class="nav-aff-btn" data-aff="clickcease">Free Bot Scan →</a>
+      <a href="#calculator" class="nav-aff-btn">See What Bots Cost You →</a>
     </div>
   </header>
 
@@ -875,12 +898,14 @@
   <section class="stats-grid">
     <div class="container">
       <div class="stat-card">
-        <div class="stat-value">$100B+</div>
+        <div class="stat-value">$100B+<sup><a class="source-link" href="{{SOURCE_URL_GLOBAL_AD_FRAUD}}" title="Source pending verification">[source]</a></sup></div>
         <div class="stat-label">Est. Global Ad Fraud</div>
+        <!-- TODO: add verified source for global ad fraud estimate -->
       </div>
       <div class="stat-card">
-        <div class="stat-value">22%</div>
+        <div class="stat-value">22%<sup><a class="source-link" href="{{SOURCE_URL_INVALIDATION_RATE}}" title="Source pending verification">[source]</a></sup></div>
         <div class="stat-label">Avg. Invalidation Rate</div>
+        <!-- TODO: add verified source for average invalidation rate -->
       </div>
       <div class="stat-card">
         <div class="stat-value">4</div>
@@ -927,10 +952,7 @@
             <div class="result-value" id="fakeClicks">0</div>
             <div class="result-label">Fake Clicks / mo (Blockable)</div>
           </div>
-          <div class="result-item">
-            <div class="result-value" id="recoverableConv">0</div>
-            <div class="result-label">Recoverable Conversions / mo</div>
-          </div>
+
         </div>
 
         <div class="traffic-breakdown">
@@ -945,12 +967,16 @@
         </div>
 
         <div class="aff-cta" id="calcCta">
-          <p>You could be losing <strong id="calcCtaAmount">$0</strong> a year. ClickCease blocks fraudulent clicks in real time, and you can try it free.</p>
-          <a href="#" class="btn aff" data-aff="clickcease">Start My Free ClickCease Trial →</a>
+          <p>You could be losing <strong id="calcCtaAmount">$0</strong> a year.</p>
+          <p class="aff-disclosure">We may earn a commission if you sign up through our links.</p>
+          <div class="cta-row">
+            <a href="#" class="btn aff" data-aff="clickcease" data-campaign="calculator" rel="sponsored noopener" target="_blank">Start My Free ClickCease Trial →</a>
+          </div>
         </div>
 
                 <!-- Inline Lead Capture Form -->
-                <form class="lead-form" id="inlineChecklistForm" style="margin-top: 2rem;">
+                <form class="lead-form" id="inlineChecklistForm" style="margin-top: 2rem;" action="{{EMAIL_PROVIDER_FORM_ACTION}}" method="POST">
+                  <input type="hidden" name="source" value="calculator" />
                   <h3>Download the 2026 PPC Bot Audit Checklist</h3>
                   <p>Get the 27-point field audit checklist used by top media buyers to detect and block invalid traffic.</p>
                   <div class="form-group">
@@ -967,6 +993,7 @@
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                       Open Checklist (PDF/Print)
                     </a>
+                    <p style="margin-top: 0.75rem;"><a href="#compare" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);">Compare Tools →</a></p>
                   </div>
                 </form>
 
@@ -976,14 +1003,87 @@
             </div>
           </section>
 
-  <!-- Module 02: Bot Inspector -->
-  <section class="module" id="inspector">
+  <!-- Module 02: Software Matrix -->
+  <section class="module" id="compare">
     <div class="container">
       <div class="module-header">
         <div class="module-number">Module 02</div>
         <div>
-          <h2>Bot Inspector</h2>
+          <h2>The Software Matrix</h2>
+          <p>Top 4 Click Fraud Protection Platforms — Ranked by detection depth, platform coverage, and value for media buyers. Most offer a free trial — run one alongside your current campaigns and compare invalid-traffic reports.</p>
+        </div>
+      </div>
+
+      <p class="aff-disclosure">We may earn a commission if you sign up through our links.</p>
+
+      <div class="table-scroll">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Tool</th>
+              <th>Rating</th>
+              <th>Supported Platforms</th>
+              <th>Primary Strengths</th>
+              <th>Pricing</th>
+              <th>Free Trial</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight" id="clickcease-row">
+              <td><a href="reviews/clickcease.html"><strong>ClickCease</strong></a> <span class="best-overall">BEST OVERALL</span></td>
+              <td><span class="rating rating-high">9.2/10</span></td>
+              <td>Google Ads, Meta, TikTok</td>
+              <td>Real-time IP blocking, automated exclusions</td>
+              <td>From $49/mo</td>
+              <td>{{FREE_TRIAL_CLICKCEASE}}</td>
+              <td><a href="#" class="action-btn aff" data-aff="clickcease" data-campaign="matrix" rel="sponsored noopener" target="_blank">Try Free</a></td>
+            </tr>
+            <tr>
+              <td><a href="reviews/trafficguard.html"><strong>TrafficGuard</strong></a></td>
+              <td><span class="rating rating-high">8.8/10</span></td>
+              <td>Google Ads, Meta, TikTok, LinkedIn</td>
+              <td>Pre-bid blocking, invalid traffic prevention</td>
+              <td>Custom quote</td>
+              <td>{{FREE_TRIAL_TRAFFICGUARD}}</td>
+              <td><a href="#" class="action-btn aff" data-aff="trafficguard" data-campaign="matrix" rel="sponsored noopener" target="_blank">Request Demo</a></td>
+            </tr>
+            <tr>
+              <td><a href="reviews/spider-af.html"><strong>Spider AF</strong></a></td>
+              <td><span class="rating rating-med">8.5/10</span></td>
+              <td>Google Ads, Meta, TikTok</td>
+              <td>Bot detection, competitor fraud analysis</td>
+              <td>From $79/mo</td>
+              <td>{{FREE_TRIAL_SPIDER_AF}}</td>
+              <td><a href="#" class="action-btn aff" data-aff="spideraf" data-campaign="matrix" rel="sponsored noopener" target="_blank">Try Free</a></td>
+            </tr>
+            <tr>
+              <td><a href="reviews/anura.html"><strong>Protected by Anura</strong></a></td>
+              <td><span class="rating rating-med">8.2/10</span></td>
+              <td>Google Ads, Meta, TikTok, Programmatic</td>
+              <td>Ad fraud detection, TCPA compliance</td>
+              <td>Custom quote</td>
+              <td>{{FREE_TRIAL_ANURA}}</td>
+              <td><a href="#" class="action-btn aff" data-aff="anura" data-campaign="matrix" rel="sponsored noopener" target="_blank">Request Demo</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">Pricing is indicative and subject to change. Verify current plans on each vendor's site. Last verified: {{DATE}}</p>
+      <p style="font-size: 0.85rem; margin-top: 0.5rem;"><a href="how-we-rate.html" style="color: var(--accent);">How we rate →</a></p>
+    </div>
+  </section>
+
+  <!-- Module 03: Bot Inspector -->
+  <section class="module" id="inspector">
+    <div class="container">
+      <div class="module-header">
+        <div class="module-number">Module 03</div>
+        <div>
+          <h2>Curious? See What Fraud Tools See About Your Browser</h2>
           <p>Live Bot Environment Scanner — The same client-side signals fraud-detection vendors fingerprint on every ad click — run against your browser, right now. Nothing leaves your device.</p>
+          <p>This checks your browser, not your ad traffic. To protect campaigns, use a dedicated tool (see comparison above).</p>
         </div>
       </div>
 
@@ -1035,71 +1135,9 @@
       </div>
 
       <div class="aff-cta" id="scanCta" style="display:none;">
-        <p>Scan complete — see what's clicking your ads. <strong>ClickCease blocks fraudulent traffic in real time.</strong></p>
-        <a href="#" class="btn aff" data-aff="clickcease">Scan My Ad Traffic Free →</a>
+        <p>This checks your browser, not your ad traffic. To protect campaigns, use a dedicated tool.</p>
+        <a href="#compare" class="btn">Compare Tools →</a>
       </div>
-    </div>
-  </section>
-
-  <!-- Module 03: Software Matrix -->
-  <section class="module" id="compare">
-    <div class="container">
-      <div class="module-header">
-        <div class="module-number">Module 03</div>
-        <div>
-          <h2>The Software Matrix</h2>
-          <p>Top 4 Click Fraud Protection Platforms — Ranked by detection depth, platform coverage, and value for media buyers. Most offer a free trial — run one alongside your current campaigns and compare invalid-traffic reports.</p>
-        </div>
-      </div>
-
-      <table class="matrix-table">
-        <thead>
-          <tr>
-            <th>Tool</th>
-            <th>Rating</th>
-            <th>Supported Platforms</th>
-            <th>Primary Strengths</th>
-            <th>Pricing</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="highlight" id="clickcease-row">
-            <td><strong>ClickCease</strong> <span class="best-overall">BEST OVERALL</span></td>
-            <td><span class="rating rating-high">9.2/10</span></td>
-            <td>Google Ads, Meta, TikTok</td>
-            <td>Real-time IP blocking, automated exclusions</td>
-            <td>From $49/mo</td>
-            <td><a href="#" class="action-btn aff" data-aff="clickcease">Try Free</a></td>
-          </tr>
-          <tr>
-            <td><strong>TrafficGuard</strong></td>
-            <td><span class="rating rating-high">8.8/10</span></td>
-            <td>Google Ads, Meta, TikTok, LinkedIn</td>
-            <td>Pre-bid blocking, invalid traffic prevention</td>
-            <td>Custom quote</td>
-                      <td><a href="#" class="action-btn aff" data-aff="trafficguard">Request Demo</a></td>
-          </tr>
-          <tr>
-            <td><strong>Spider AF</strong></td>
-            <td><span class="rating rating-med">8.5/10</span></td>
-            <td>Google Ads, Meta, TikTok</td>
-            <td>Bot detection, competitor fraud analysis</td>
-            <td>From $79/mo</td>
-            <td><a href="#" class="action-btn aff" data-aff="spideraf">Try Free</a></td>
-          </tr>
-          <tr>
-            <td><strong>Protected by Anura</strong></td>
-            <td><span class="rating rating-med">8.2/10</span></td>
-            <td>Google Ads, Meta, TikTok, Programmatic</td>
-            <td>Ad fraud detection, TCPA compliance</td>
-            <td>Custom quote</td>
-            <td><a href="#" class="action-btn aff" data-aff="anura">Request Demo</a></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">Pricing is indicative and subject to change. Verify current plans on each vendor's site.</p>
     </div>
   </section>
 
@@ -1114,82 +1152,117 @@
       </div>
       <details style="margin: 1rem 0; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;">
         <summary style="font-weight: 600; color: var(--text); cursor: pointer;">What is click fraud?</summary>
-        <p style="margin-top: 0.75rem; color: var(--text-muted); font-size: 0.95rem;">Click fraud is when bots, click farms, or automated scripts repeatedly click on your PPC ads with no intent to convert. It drains your budget, skews performance data, and inflates cost per acquisition across Google Ads, Meta, and TikTok.</p>
+        <p style="margin-top: 0.75rem; color: var(--text-muted); font-size: 0.95rem;">Click fraud is when bots, click farms, or automated scripts repeatedly click your PPC ads with no intent to convert. It drains your budget and skews performance data across Google Ads, Meta, and TikTok. <a href="guides/what-is-click-fraud.html" style="color: var(--accent);">Read the full guide →</a></p>
       </details>
       <details style="margin: 1rem 0; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;">
         <summary style="font-weight: 600; color: var(--text); cursor: pointer;">Doesn't Google already refund invalid clicks?</summary>
-        <p style="margin-top: 0.75rem; color: var(--text-muted); font-size: 0.95rem;">Google automatically filters some invalid clicks and issues refunds for clearly fraudulent activity — but only after detection, and only for what they catch. A significant portion of invalid traffic goes undetected or unreimbursed, which is why proactive blocking (e.g., ClickCease) matters.</p>
+        <p style="margin-top: 0.75rem; color: var(--text-muted); font-size: 0.95rem;">Google automatically filters some invalid clicks and can issue refunds for detected fraudulent activity. Not all invalid traffic is caught or reimbursed, which is why proactive blocking can matter. <a href="guides/does-google-refund-invalid-clicks.html" style="color: var(--accent);">Read the full guide →</a></p>
       </details>
       <details style="margin: 1rem 0; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;">
         <summary style="font-weight: 600; color: var(--text); cursor: pointer;">How do I know if bots are clicking my ads?</summary>
-        <p style="margin-top: 0.75rem; color: var(--text-muted); font-size: 0.95rem;">Look for high click volume with zero conversions, sudden CTR spikes, traffic from datacenter IP ranges, short session durations, and clicks from locations you don't target. Use the Ad Waste Calculator above to estimate your losses, and run the Bot Inspector to check your browser's fingerprint.</p>
+        <p style="margin-top: 0.75rem; color: var(--text-muted); font-size: 0.95rem;">Look for high click volume with low conversions, sudden CTR spikes, traffic from datacenter IP ranges, short session durations, and clicks from locations you don't target. Use the Ad Waste Calculator above to estimate your losses, and run the Bot Inspector to check your browser's fingerprint. <a href="guides/how-to-detect-click-fraud.html" style="color: var(--accent);">Read the full guide →</a></p>
       </details>
       <details style="margin: 1rem 0; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;">
         <summary style="font-weight: 600; color: var(--text); cursor: pointer;">Which click fraud tool is best for a small business?</summary>
-        <p style="margin-top: 0.75rem; color: var(--text-muted); font-size: 0.95rem;">ClickCease is best for most small advertisers — it offers real-time IP blocking, automated exclusions across Google Ads, Meta, and TikTok, and starts at $49/mo with a free trial. Use the matrix above to compare all four platforms.</p>
+        <p style="margin-top: 0.75rem; color: var(--text-muted); font-size: 0.95rem;">The right tool depends on your budget, platforms, and detection needs. Compare the matrix above, then use the criteria in our guide to narrow the shortlist. <a href="guides/best-click-fraud-tool-small-business.html" style="color: var(--accent);">Read the full guide →</a></p>
       </details>
     </div>
   </section>
 
-  <!-- Affiliate Disclosure -->
-  <div class="container">
-    <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;">
-      <p style="color: var(--text-muted); font-size: 0.85rem;"><strong>Affiliate disclosure:</strong> Clickbots.com may earn a commission when you start a trial or purchase through these links, at no extra cost to you. Rankings are editorially independent.</p>
-    </div>
-  </div>
-
-  <!-- Premium Domain -->
-  <section class="module" style="border-bottom: none;">
-    <div class="container">
-      <div style="text-align: center;">
-        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Premium Domain · Strategic Acquisition</h2>
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Interested in acquiring Clickbots.com for your AdTech brand or cybersecurity startup?</p>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Exact-match category domain with built-in tooling and affiliate infrastructure.</p>
-          <button type="button" class="cta-button" id="openDomainModal" style="margin-top: 1rem;">Submit Inquiry</button>
-        </div>
-      </div>
-    </section>
+  <!-- Mobile Compare Button -->
+  <a href="#compare" class="mobile-compare-btn" id="mobileCompareBtn">Compare Tools</a>
 
   <!-- Sticky Bottom Affiliate Bar -->
   <div class="sticky-aff-bar hidden" id="stickyAffBar">
     <p>Bots clicking your ads? Find out free.</p>
-    <a href="#" class="btn aff" data-aff="clickcease">Get Free ClickCease Trial →</a>
+    <a href="#" class="btn aff" data-aff="clickcease" rel="sponsored noopener" target="_blank">Get Free ClickCease Trial →</a>
     <button class="close-btn" id="closeStickyBar" aria-label="Close">&times;</button>
   </div>
 
   <footer>
     <div class="container">
       <p>&copy; 2026 Clickbots.com — PPC Click Fraud Detection & Bot Blocker Reviews</p>
+      <p style="margin-top: 0.5rem;"><a href="how-we-rate.html">How we rate</a> · <a href="acquire.html">Acquisition inquiries</a></p>
+      <p style="margin-top: 0.75rem; font-size: 0.8rem;"><strong>Affiliate disclosure:</strong> Clickbots.com may earn a commission when you start a trial or purchase through these links, at no extra cost to you. Rankings are editorially independent.</p>
     </div>
   </footer>
 
   <script>
       // ============================================
-      // CONFIGURATION
+      // SITE CONFIG — edit thresholds, tool data, and endpoints here
       // ============================================
-      const CONFIG = {
-        leadCaptureEndpoint: '/api/lead-capture', // Replace with Formspree/Loops/Resend endpoint
-        domainInquiryEndpoint: '/api/domain-inquiry', // Replace with Formspree/Loops/Resend endpoint
+      const SITE_CONFIG = {
+        emailFormAction: '{{EMAIL_PROVIDER_FORM_ACTION}}', // TODO: replace with Formspree/Loops/Resend endpoint
+        subId: '{{SUBTAG}}', // TODO: replace with per-placement subID
+        utm: {
+          source: 'clickbots',
+          medium: 'affiliate'
+        },
+        calculator: {
+          spendThreshold: 5000, // USD/month: below = lowSpend, at/above = highSpend
+          recommendations: {
+            lowSpend: { primary: 'clickcease', secondary: 'spideraf' },
+            highSpend: { primary: 'trafficguard', secondary: 'clickcease' }
+          },
+          tools: {
+            clickcease: {
+              name: 'ClickCease',
+              url: 'https://protect.essentials.cheq.ai/visit/?bta=37472&brand=clickcease',
+              cta: 'Start My Free ClickCease Trial →',
+              blurb: 'Real-time IP blocking and automated exclusions across Google Ads, Meta, and TikTok.'
+            },
+            trafficguard: {
+              name: 'TrafficGuard',
+              url: '{{AFFILIATE_URL_TRAFFICGUARD}}',
+              cta: 'Request a TrafficGuard Demo →',
+              blurb: 'Pre-bid invalid-traffic blocking for larger, multi-platform campaigns.'
+            },
+            spideraf: {
+              name: 'Spider AF',
+              url: '{{AFFILIATE_URL_SPIDER_AF}}',
+              cta: 'Explore Spider AF →',
+              blurb: 'Bot detection and competitor fraud analysis for growing accounts.'
+            },
+            anura: {
+              name: 'Anura',
+              url: '{{AFFILIATE_URL_ANURA}}',
+              cta: 'Request an Anura Demo →',
+              blurb: 'Ad fraud detection with compliance-focused reporting.'
+            }
+          }
+        }
       };
 
-      // ============================================
-      // AFFILIATE CONFIG
-      // ============================================
-      const AFF = {
-        clickcease: "https://protect.essentials.cheq.ai/visit/?bta=37472&brand=clickcease",
-        trafficguard: "https://www.trafficguard.ai/",
-        spideraf: "https://spideraf.com/",
-        anura: "https://www.anura.io/"
-      };
-
+      function buildAffiliateUrl(rawUrl, campaign) {
+        if (!rawUrl) return '#';
+        const params = [
+          'utm_source=' + encodeURIComponent(SITE_CONFIG.utm.source),
+          'utm_medium=' + encodeURIComponent(SITE_CONFIG.utm.medium),
+          'utm_campaign=' + encodeURIComponent(campaign || 'affiliate'),
+          'subid=' + encodeURIComponent(SITE_CONFIG.subId)
+        ].join('&');
+        if (rawUrl.indexOf('{{') !== -1) {
+          return rawUrl + (rawUrl.indexOf('?') !== -1 ? '&' : '?') + params;
+        }
+        try {
+          const url = new URL(rawUrl);
+          url.searchParams.set('utm_source', SITE_CONFIG.utm.source);
+          url.searchParams.set('utm_medium', SITE_CONFIG.utm.medium);
+          url.searchParams.set('utm_campaign', campaign || 'affiliate');
+          url.searchParams.set('subid', SITE_CONFIG.subId);
+          return url.toString();
+        } catch (e) {
+          return rawUrl;
+        }
+      }
 
       function initAffiliateLinks() {
         document.querySelectorAll('.aff').forEach(link => {
           const key = link.getAttribute('data-aff');
-          const target = AFF[key];
-          if (!target) return;
-          if (target.startsWith('YOUR_')) return;
-          link.href = target;
+          const tool = SITE_CONFIG.calculator.tools[key];
+          if (!tool) return;
+          const campaign = link.getAttribute('data-campaign') || 'affiliate';
+          link.href = buildAffiliateUrl(tool.url, campaign);
           link.target = '_blank';
           link.rel = 'sponsored noopener';
         });
@@ -1244,9 +1317,27 @@
       const monthlyLostEl = document.getElementById('monthlyLost');
       const annualLostEl = document.getElementById('annualLost');
       const fakeClicksEl = document.getElementById('fakeClicks');
-      const recoverableConvEl = document.getElementById('recoverableConv');
       const cleanTrafficEl = document.getElementById('cleanTraffic');
       const invalidTrafficEl = document.getElementById('invalidTraffic');
+      const calcCtaEl = document.getElementById('calcCta');
+
+      function buildRecommendationMarkup(monthlySpend, annualLost) {
+        const threshold = SITE_CONFIG.calculator.spendThreshold;
+        const bucket = monthlySpend < threshold ? 'lowSpend' : 'highSpend';
+        const rec = SITE_CONFIG.calculator.recommendations[bucket];
+        const primary = SITE_CONFIG.calculator.tools[rec.primary];
+        const secondary = SITE_CONFIG.calculator.tools[rec.secondary];
+        return `
+          <p>You could be losing <strong>${formatCurrency(annualLost)}</strong> a year.</p>
+          <p class="aff-disclosure">We may earn a commission if you sign up through our links.</p>
+          <p><strong>Recommended for ${formatCurrency(monthlySpend)}/mo spend:</strong> ${primary.name} (primary), ${secondary.name} (secondary).</p>
+          <div class="cta-row">
+            <a href="#" class="btn aff" data-aff="${rec.primary}" data-campaign="calculator">${primary.cta}</a>
+            <a href="#" class="btn aff secondary" data-aff="${rec.secondary}" data-campaign="calculator">${secondary.cta}</a>
+          </div>
+          <p class="aff-disclosure">${primary.blurb}</p>
+        `;
+      }
 
       function calculate() {
         const monthlySpend = parseFloat(monthlySpendInput.value) || 0;
@@ -1255,20 +1346,19 @@
 
         const monthlyLost = monthlySpend * (fraudRate / 100);
         const annualLost = monthlyLost * 12;
-        const fakeClicks = monthlyLost / cpc;
-        const recoverableConv = fakeClicks * 0.02;
+        const fakeClicks = cpc > 0 ? monthlyLost / cpc : 0;
         const cleanPct = 100 - fraudRate;
 
         monthlyLostEl.textContent = formatCurrency(monthlyLost);
         annualLostEl.textContent = formatCurrency(annualLost);
         fakeClicksEl.textContent = formatNumber(Math.round(fakeClicks));
-        recoverableConvEl.textContent = formatNumber(Math.round(recoverableConv));
         cleanTrafficEl.textContent = `Clean traffic ${cleanPct.toFixed(0)}%`;
         invalidTrafficEl.textContent = `Invalid traffic ${fraudRate.toFixed(0)}%`;
 
-        // Update CTA box amount live
-        const ctaAmountEl = document.getElementById('calcCtaAmount');
-        if (ctaAmountEl) ctaAmountEl.textContent = formatCurrency(annualLost);
+        if (calcCtaEl) {
+          calcCtaEl.innerHTML = buildRecommendationMarkup(monthlySpend, annualLost);
+          initAffiliateLinks();
+        }
       }
 
       [monthlySpendInput, fraudRateInput, cpcInput].forEach(input => {
@@ -1385,7 +1475,6 @@
 
       // Close buttons
       document.getElementById('closeChecklistModal')?.addEventListener('click', () => closeModal('checklistModal'));
-      document.getElementById('closeDomainModal')?.addEventListener('click', () => closeModal('domainModal'));
 
       // Escape key to close
       document.addEventListener('keydown', (e) => {
@@ -1397,8 +1486,6 @@
       // ============================================
       // LEAD CAPTURE FORM HANDLERS
       // ============================================
-      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
-
       async function handleChecklistSubmit(form, messageEl, downloadEl, emailInput) {
         const email = emailInput.value.trim();
         if (!validateEmail(email)) {
@@ -1406,8 +1493,8 @@
           return;
         }
 
-        // If Formspree ID is still a placeholder, warn and stop
-        if (FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')) {
+        const endpoint = SITE_CONFIG.emailFormAction;
+        if (!endpoint || endpoint.includes('{{')) {
           showFormMessage(messageEl, 'Form not connected yet.', false);
           setButtonLoading(form.querySelector('.submit-btn'), false);
           return;
@@ -1419,19 +1506,23 @@
 
         try {
           const formData = new FormData(form);
-          const response = await fetch(FORMSPREE_ENDPOINT, {
+          if (!formData.get('source')) {
+            formData.set('source', form.closest('#calculator') ? 'calculator' : 'checklist');
+          }
+          const response = await fetch(endpoint, {
             method: 'POST',
             body: formData,
             headers: { Accept: 'application/json' },
           });
 
           if (response.ok) {
-            showFormMessage(messageEl, 'Success! Your checklist is ready.', true);
+            messageEl.innerHTML = 'Success! Your checklist is ready. <a href="#compare" style="color: inherit; text-decoration: underline;">Compare tools →</a>';
+            messageEl.className = 'form-message success';
             downloadEl.style.display = 'block';
             form.reset();
             // Track conversion (placeholder for analytics)
             if (typeof gtag !== 'undefined') {
-              gtag('event', 'lead_capture', { event_category: 'checklist', event_label: 'ppc_bot_audit_2026' });
+              gtag('event', 'lead_capture', { event_category: formData.get('source') || 'checklist', event_label: 'ppc_bot_audit_2026' });
             }
           } else {
             showFormMessage(messageEl, 'Something went wrong. Please try again.', false);
@@ -1472,57 +1563,6 @@
       }
 
       // ============================================
-      // DOMAIN INQUIRY FORM HANDLER
-      // ============================================
-      const domainForm = document.getElementById('domainForm');
-      if (domainForm) {
-        domainForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
-        
-          const formData = {
-            name: document.getElementById('domainName').value.trim(),
-            company: document.getElementById('domainCompany').value.trim(),
-            email: document.getElementById('domainEmail').value.trim(),
-            offer: document.getElementById('domainOffer').value,
-            message: document.getElementById('domainMessage').value.trim(),
-          };
-
-          const messageEl = document.getElementById('domainMessage');
-          const submitBtn = domainForm.querySelector('.submit-btn');
-
-          // Validation
-          if (!formData.name || !formData.company || !formData.email || !formData.offer || !formData.message) {
-            showFormMessage(messageEl, 'Please fill in all required fields.', false);
-            return;
-          }
-          if (!validateEmail(formData.email)) {
-            showFormMessage(messageEl, 'Please enter a valid email address.', false);
-            return;
-          }
-
-          setButtonLoading(submitBtn, true);
-          showFormMessage(messageEl, '', false);
-
-          try {
-            // In production, replace with actual endpoint
-            // const response = await submitForm(CONFIG.domainInquiryEndpoint, formData);
-            await new Promise(r => setTimeout(r, 1200));
-          
-            showFormMessage(messageEl, 'Inquiry received. Conrad and the Clickbots team will review your proposal under NDA within 48 hours.', true);
-            setButtonLoading(submitBtn, false);
-          
-            // Track conversion
-            if (typeof gtag !== 'undefined') {
-              gtag('event', 'lead_capture', { event_category: 'domain_inquiry', event_label: 'strategic_acquisition' });
-            }
-          } catch (error) {
-            showFormMessage(messageEl, 'Something went wrong. Please try again.', false);
-            setButtonLoading(submitBtn, false);
-          }
-        });
-      }
-
-      // ============================================
       // MODAL TRIGGERS
       // ============================================
       // Exit intent detection for checklist modal
@@ -1533,9 +1573,6 @@
           openModal('checklistModal');
         }
       });
-
-      // Domain inquiry button
-      document.getElementById('openDomainModal')?.addEventListener('click', () => openModal('domainModal'));
 
       // ============================================
       // SMOOTH SCROLL TO MATRIX WITH HIGHLIGHT
@@ -1602,6 +1639,22 @@
           stickyBar.classList.remove('show');
           stickyBar.classList.add('hidden');
         });
+      }
+
+      // ============================================
+      // MOBILE COMPARE BUTTON
+      // ============================================
+      const mobileCompareBtn = document.getElementById('mobileCompareBtn');
+      if (mobileCompareBtn) {
+        const matrixSection = document.getElementById('compare');
+        if (matrixSection && 'IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              mobileCompareBtn.classList.toggle('hidden', entry.isIntersecting);
+            });
+          }, { threshold: 0.15 });
+          observer.observe(matrixSection);
+        }
       }
     </script>
   </body>
